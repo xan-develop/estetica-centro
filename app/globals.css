@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 60 5.9% 93.3%; /* Grisáceo, neutro y suave como base */
+    --foreground: 1 25% 20.1%; /* Marrón oscuro, texto principal con contraste */
+    --card: 18 50% 86.7%; /* Rosa palo más flojo, sutil para tarjetas */
+    --card-foreground: 16 25% 36.1%; /* Marrón oscuro para texto en tarjetas */
+    --popover: 45 30% 88%; /* Beige cálido, nuevo tono suave pero distinto */
+    --popover-foreground: 16 25% 36.1%; /* Marrón oscuro para texto */
+    --primary: 28 45.7% 63.9%; /* Marrón dorado, vibrante y central */
+    --primary-foreground: 60 5.9% 93.3%; /* Grisáceo para contraste */
+    --secondary: 160 40% 70%; /* Turquesa suave, nuevo color complementario */
+    --secondary-foreground: 16 25% 36.1%; /* Marrón oscuro para texto */
+    --muted: 17 50% 85.1%; /* Rosa palo, tono apagado original */
+    --muted-foreground: 28 45.7% 33.9%; /* Marrón dorado para texto sutil */
+    --accent: 8 45.7% 63.9%; /* Lavanda claro, nuevo tono distintivo */
+    --accent-foreground: 16 25% 36.1%; /* Marrón oscuro para contraste */
+    --destructive: 0 60% 50%; /* Rojo terracota, nuevo color intenso */
+    --destructive-foreground: 18 50% 86.7%; /* Rosa palo más flojo para texto */
+    --border: 60 5.9% 93.3%; /* Grisáceo, discreto y unificador */
+    --input: 45 30% 88%; /* Beige cálido, nuevo para inputs */
+    --ring: 28 45.7% 63.9%; /* Marrón dorado, destacado */
+    --chart-1: 17 50% 85.1%; /* Rosa palo */
+    --chart-2: 28 45.7% 63.9%; /* Marrón dorado */
+    --chart-3: 160 40% 70%; /* Turquesa suave */
+    --chart-4: 300 35% 75%; /* Lavanda claro */
+    --chart-5: 0 60% 50%; /* Rojo terracota */
+    --radius: 0.5rem; /* Sin cambios */
+    --sidebar-background: 60 5.9% 93.3%; /* Grisáceo para fondo */
+    --sidebar-foreground: 16 25% 36.1%; /* Marrón oscuro para texto */
+    --sidebar-primary: 28 45.7% 63.9%; /* Marrón dorado */
+    --sidebar-primary-foreground: 60 5.9% 93.3%; /* Grisáceo */
+    --sidebar-accent: 300 35% 75%; /* Lavanda claro como acento */
+    --sidebar-accent-foreground: 16 25% 36.1%; /* Marrón oscuro */
+    --sidebar-border: 45 30% 88%; /* Beige cálido para bordes */
+    --sidebar-ring: 160 40% 70%; /* Turquesa suave para anillos */
+}
+  .dark {
+    --background: 60 5.9% 10%; /* Gris oscuro, base sombría sin cambios */
+    --foreground: 45 30% 80%; /* Dorado claro, texto principal más cálido */
+    --card: 18 50% 20%; /* Rosa palo oscuro, sin cambios */
+    --card-foreground: 50 25% 85%; /* Dorado suave para texto en tarjetas */
+    --popover: 45 30% 15%; /* Beige oscuro, sin cambios */
+    --popover-foreground: 50 25% 85%; /* Dorado suave para texto */
+    --primary: 40 50% 45%; /* Dorado vibrante, más luminoso y central */
+    --primary-foreground: 60 5.9% 90%; /* Gris claro para contraste */
+    --secondary: 160 40% 30%; /* Turquesa oscuro, sin cambios */
+    --secondary-foreground: 50 25% 85%; /* Dorado suave para texto */
+    --muted:  60 5.9% 10%; /* Rosa palo apagado, sin cambios */
+    --muted-foreground: 40 50% 70%; /* Dorado sutil para texto apagado */
+    --accent: 8 45.7% 35%; /* Lavanda oscuro, sin cambios */
+    --accent-foreground: 50 25% 85%; /* Dorado suave para contraste */
+    --destructive: 0 60% 35%; /* Rojo terracota oscuro, sin cambios */
+    --destructive-foreground: 18 50% 80%; /* Rosa palo claro, sin cambios */
+    --border: 60 5.9% 20%; /* Gris oscuro, sin cambios */
+    --input: 45 30% 20%; /* Beige oscuro, sin cambios */
+    --ring: 40 50% 50%; /* Dorado vibrante para anillos */
+    --chart-1: 17 50% 25%; /* Rosa palo oscuro */
+    --chart-2: 40 50% 45%; /* Dorado vibrante */
+    --chart-3: 160 40% 30%; /* Turquesa oscuro */
+    --chart-4: 300 35% 35%; /* Lavanda oscuro */
+    --chart-5: 0 60% 35%; /* Rojo terracota oscuro */
+    --radius: 0.5rem; /* Sin cambios */
+    --sidebar-background: 60 5.9% 10%; /* Gris oscuro, sin cambios */
+    --sidebar-foreground: 50 25% 85%; /* Dorado suave para texto */
+    --sidebar-primary: 40 50% 45%; /* Dorado vibrante */
+    --sidebar-primary-foreground: 60 5.9% 90%; /* Gris claro */
+    --sidebar-accent: 300 35% 35%; /* Lavanda oscuro, sin cambios */
+    --sidebar-accent-foreground: 50 25% 85%; /* Dorado suave */
+    --sidebar-border: 45 30% 20%; /* Beige oscuro, sin cambios */
+    --sidebar-ring: 160 40% 30%; /* Turquesa oscuro, sin cambios */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
