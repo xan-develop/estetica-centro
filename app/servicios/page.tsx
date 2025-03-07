@@ -11,45 +11,73 @@ export const metadata: Metadata = {
 // Datos de ejemplo para los servicios
 const serviceCategories = [
   {
+    
     id: "corporales",
     title: "Tratamientos Corporales",
     description:
-      "Tratamientos especializados para mejorar la apariencia y salud de tu cuerpo, reducir medidas y combatir la celulitis.",
+      "Tratamientos especializados para mejorar la apariencia y salud de tu cuerpo, utilizando diversas técnicas innovadoras.",
     services: [
       {
-        id: "reduccion-medidas",
-        title: "Reducción de Medidas",
+        id: "maderoterapia",
+        title: "Maderoterapia",
         description:
-          "Tratamiento intensivo para reducir centímetros en zonas específicas como abdomen, piernas y brazos.",
-        price: 60,
-        duration: "60 minutos",
-        image: "/placeholder.svg?height=300&width=400",
-        popular: true,
-      },
-      {
-        id: "anticelulitis",
-        title: "Tratamiento Anticelulitis",
-        description:
-          "Combate eficazmente la celulitis con técnicas avanzadas que mejoran la circulación y eliminan toxinas.",
-        price: 70,
-        duration: "60 minutos",
+          "Terapia con herramientas de madera diseñadas para modelar el cuerpo, reducir medidas y mejorar la circulación.",
+        price: 15,
+        duration: "1€ minuto - mínimo 5 minutos",
         image: "/placeholder.svg?height=300&width=400",
       },
       {
-        id: "reafirmante",
-        title: "Tratamiento Reafirmante",
+        id: "mesoterapia",
+        title: "Mesoterapia",
         description:
-          "Devuelve la firmeza a tu piel con este tratamiento que estimula la producción de colágeno y elastina.",
-        price: 75,
-        duration: "60 minutos",
+          "Tratamiento estético no invasivo que ayuda a reducir grasa localizada y mejorar la apariencia de la piel.",
+        price: 15,
+        duration: "1€ minuto - mínimo 15 minutos",
         image: "/placeholder.svg?height=300&width=400",
       },
       {
-        id: "drenaje-linfatico",
-        title: "Drenaje Linfático",
-        description: "Técnica de masaje que favorece la eliminación de líquidos y toxinas, reduciendo la hinchazón.",
-        price: 65,
-        duration: "60 minutos",
+        id: "manta-termica",
+        title: "Manta Térmica",
+        description:
+          "Terapia de calor que ayuda a la eliminación de toxinas, mejora la circulación y favorece la reducción de medidas.",
+        price: 15,
+        duration: "1€ minuto - mínimo 15 minutos",
+        image: "/placeholder.svg?height=300&width=400",
+      },
+      {
+        id: "radiofrecuencia",
+        title: "Radiofrecuencia",
+        description:
+          "Tratamiento reafirmante que estimula la producción de colágeno y elastina para mejorar la firmeza de la piel.",
+        price: 15,
+        duration: "1€ minuto - mínimo 15 minutos",
+        image: "/placeholder.svg?height=300&width=400",
+      },
+      {
+        id: "cavitacion",
+        title: "Cavitación",
+        description:
+          "Técnica de ultrasonido que ayuda a eliminar grasa localizada y reducir medidas sin cirugía.",
+        price: 15,
+        duration: "1€ minuto - mínimo 30 minutos",
+        image: "/placeholder.svg?height=300&width=400",
+      },
+      {
+        id: "presoterapia",
+        title: "Presoterapia",
+        description:
+          "Tratamiento de compresión que mejora la circulación, reduce la retención de líquidos y ayuda en la recuperación muscular.",
+        price: 15,
+        duration: "1€ minuto - mínimo 45 minutos",
+        image: "/placeholder.svg?height=300&width=400",
+      },
+      {
+        id: "vacumterapia",
+        title: "Vacumterapia",
+        description:
+          "Terapia de succión que ayuda a mejorar la circulación, reducir la celulitis y tonificar la piel.",
+        price: 15,
+        duration: "1€ minuto - mínimo 30 minutos",
         image: "/placeholder.svg?height=300&width=400",
       },
     ],
@@ -61,28 +89,57 @@ const serviceCategories = [
       "Cuida y rejuvenece tu rostro con nuestros tratamientos faciales personalizados para cada tipo de piel.",
     services: [
       {
-        id: "limpieza-profunda",
-        title: "Limpieza Facial Profunda",
-        description: "Elimina impurezas, puntos negros y células muertas dejando tu piel limpia, fresca y luminosa.",
-        price: 50,
-        duration: "60 minutos",
-        image: "/placeholder.svg?height=300&width=400",
-        popular: true,
-      },
-      {
-        id: "hidratacion-intensiva",
-        title: "Hidratación Intensiva",
-        description: "Tratamiento que aporta hidratación profunda a la piel, ideal para pieles secas o deshidratadas.",
-        price: 55,
+        id: "limpieza-basica",
+        title: "Limpieza Básica",
+        description:
+          "Elimina impurezas y deja la piel fresca y revitalizada.",
+        price: 40,
         duration: "45 minutos",
         image: "/placeholder.svg?height=300&width=400",
       },
       {
-        id: "antiarrugas",
-        title: "Tratamiento Antiarrugas",
-        description: "Reduce visiblemente líneas de expresión y arrugas con principios activos de última generación.",
-        price: 80,
+        id: "limpieza-profunda",
+        title: "Limpieza Facial Profunda",
+        description:
+          "Elimina impurezas, puntos negros y células muertas dejando tu piel limpia, fresca y luminosa.",
+        price: 65,
         duration: "60 minutos",
+        image: "/placeholder.svg?height=300&width=400",
+      },
+      {
+        id: "dermapen-hilos",
+        title: "Dermapen + Hilos",
+        description:
+          "Reafirma y rejuvenece la piel con una combinación avanzada de Dermapen y hilos tensores.",
+        price: 105,
+        duration: "60 minutos",
+        image: "/placeholder.svg?height=300&width=400",
+      },
+      {
+        id: "dermapen-hidratacion",
+        title: "Dermapen + Hidratación",
+        description:
+          "Estimula la regeneración de la piel mientras proporciona hidratación profunda.",
+        price: 60,
+        duration: "60 minutos",
+        image: "/placeholder.svg?height=300&width=400",
+      },
+      {
+        id: "dermapen-labial-hidratacion",
+        title: "Dermapen Labial + Hidratación",
+        description:
+          "Tratamiento para labios que mejora la textura y los mantiene hidratados.",
+        price: 35,
+        duration: "30 minutos",
+        image: "/placeholder.svg?height=300&width=400",
+      },
+      {
+        id: "dermapen-labial-hidratacion-color",
+        title: "Dermapen Labial + Hidratación con Color",
+        description:
+          "Añade un toque de color mientras hidrata y mejora la apariencia de los labios.",
+        price: 45,
+        duration: "30 minutos",
         image: "/placeholder.svg?height=300&width=400",
       },
     ],
@@ -94,56 +151,67 @@ const serviceCategories = [
       "Relaja cuerpo y mente, alivia tensiones y mejora tu bienestar general con nuestros masajes especializados.",
     services: [
       {
-        id: "masaje-relajante",
-        title: "Masaje Relajante",
+        id: "masaje-relajante-espalda",
+        title: "Masaje Relajante de Espalda",
         description:
-          "Masaje suave que reduce el estrés y la ansiedad, proporcionando una sensación de bienestar general.",
-        price: 45,
-        duration: "45 minutos",
-        image: "/placeholder.svg?height=300&width=400",
-        popular: true,
-      },
-      {
-        id: "masaje-descontracturante",
-        title: "Masaje Descontracturante",
-        description: "Alivia contracturas y tensiones musculares con técnicas específicas de presión y estiramientos.",
-        price: 55,
+          "Masaje relajante centrado en la espalda para aliviar tensiones y mejorar la circulación.",
+        price: 35,
         duration: "45 minutos",
         image: "/placeholder.svg?height=300&width=400",
       },
       {
-        id: "masaje-deportivo",
-        title: "Masaje Deportivo",
-        description: "Ideal para deportistas, ayuda a prevenir lesiones y acelerar la recuperación muscular.",
-        price: 60,
+        id: "masaje-relajante-cuello",
+        title: "Masaje Relajante de Cuello",
+        description:
+          "Técnica suave y efectiva para liberar la tensión acumulada en el cuello.",
+        price: 35,
+        duration: "45 minutos",
+        image: "/placeholder.svg?height=300&width=400",
+      },
+      {
+        id: "masaje-relajante-cara",
+        title: "Masaje Relajante de Cara",
+        description:
+          "Estimula la circulación facial y reduce el estrés proporcionando una sensación de bienestar.",
+        price: 35,
+        duration: "45 minutos",
+        image: "/placeholder.svg?height=300&width=400",
+      },
+      {
+        id: "masaje-relajante-piernas",
+        title: "Masaje Relajante de Piernas",
+        description:
+          "Alivia la pesadez en las piernas y mejora la circulación sanguínea.",
+        price: 35,
+        duration: "45 minutos",
+        image: "/placeholder.svg?height=300&width=400",
+      },
+      {
+        id: "masaje-relajante-pies",
+        title: "Masaje Relajante de Pies",
+        description:
+          "Terapia para relajar los pies cansados y mejorar el bienestar general.",
+        price: 35,
+        duration: "45 minutos",
+        image: "/placeholder.svg?height=300&width=400",
+      },
+      {
+        id: "masaje-relajante-cuerpo-completo",
+        title: "Masaje Relajante Cuerpo Completo",
+        description:
+          "Masaje integral para liberar estrés y relajar todos los músculos del cuerpo.",
+        price: 75,
         duration: "60 minutos",
         image: "/placeholder.svg?height=300&width=400",
       },
-    ],
-  },
-  {
-    id: "especiales",
-    title: "Tratamientos Especiales",
-    description: "Paquetes y tratamientos exclusivos diseñados para obtener resultados óptimos en tiempo reducido.",
-    services: [
       {
-        id: "pack-novias",
-        title: "Pack Novias",
+        id: "masaje-descontracturante-cuerpo-completo",
+        title: "Masaje Descontracturante Cuerpo Completo",
         description:
-          "Preparación completa para lucir radiante en tu día especial. Incluye tratamientos faciales y corporales.",
-        price: 180,
-        duration: "3 sesiones",
+          "Técnica profunda que ayuda a aliviar tensiones musculares y mejorar la movilidad.",
+        price: 90,
+        duration: "60 minutos",
         image: "/placeholder.svg?height=300&width=400",
-      },
-      {
-        id: "pack-verano",
-        title: "Pack Preparación Verano",
-        description:
-          "Prepara tu cuerpo para el verano con este pack que incluye tratamientos reductores y reafirmantes.",
-        price: 150,
-        duration: "3 sesiones",
-        image: "/placeholder.svg?height=300&width=400",
-        popular: true,
       },
     ],
   },

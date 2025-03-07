@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { useCart } from "@/components/cart-context"; // Importa el hook personalizado
 
 export interface ServiceProps {
   id: string
@@ -15,6 +16,8 @@ export interface ServiceProps {
 }
 
 export default function ServiceCard({ service }: { service: ServiceProps }) {
+  const { agregarAlCarrito } = useCart(); // Usa el hook para acceder a las funciones del carrito
+
   return (
     <Card className="overflow-hidden">
       <div className="relative">
@@ -41,11 +44,11 @@ export default function ServiceCard({ service }: { service: ServiceProps }) {
         <Button variant="outline" className="w-full" asChild>
           <Link href={`/servicios/${service.id}`}>Más información</Link>
         </Button>
-        <Button className="w-full" asChild>
-          <Link href={`/reservar?servicio=${service.id}`}>Reservar</Link>
+        <Button className="w-full" onClick={() => agregarAlCarrito({ id: service.id, title: service.title, price: service.price })}>
+          Agregar Tratamiento
         </Button>
       </CardFooter>
     </Card>
-  )
+  );
 }
 

@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     }
   }
   return {
-    title: `${service.title} - Belleza Esencial`,
+    title: `${service.title} - Centro de estética lixchel`,
     description: service.description,
   }
 }
@@ -87,13 +87,7 @@ export default function ServiceDetailPage({ params }: { params: { id: string } }
           <section>
             <h2 className="text-2xl font-serif font-semibold mb-4">Beneficios</h2>
             <ul className="space-y-2">
-              {[
-                "Mejora la circulación sanguínea",
-                "Reduce la retención de líquidos",
-                "Tonifica y reafirma la piel",
-                "Alivia el estrés y la tensión muscular",
-                "Promueve una sensación de bienestar general",
-              ].map((benefit, index) => (
+              {service.benefits.map((benefit, index) => (
                 <li key={index} className="flex items-start">
                   <svg
                     className="h-6 w-6 mr-2 text-primary flex-shrink-0"
@@ -113,13 +107,7 @@ export default function ServiceDetailPage({ params }: { params: { id: string } }
           <section>
             <h2 className="text-2xl font-serif font-semibold mb-4">El proceso</h2>
             <ol className="space-y-4">
-              {[
-                "Evaluación inicial personalizada",
-                "Preparación de la zona a tratar",
-                "Aplicación de productos especializados",
-                "Técnicas de masaje y manipulación",
-                "Recomendaciones post-tratamiento",
-              ].map((step, index) => (
+              {service.process.map((step, index) => (
                 <li key={index} className="flex items-start">
                   <span className="font-serif font-bold text-primary mr-4">{index + 1}.</span>
                   {step}
@@ -129,7 +117,7 @@ export default function ServiceDetailPage({ params }: { params: { id: string } }
           </section>
         </div>
 
-        <section className="mt-16">
+        <section className="mt-16 hidden">
           <h2 className="text-2xl font-serif font-semibold mb-6 text-center">Lo que dicen nuestros clientes</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
@@ -166,7 +154,7 @@ export default function ServiceDetailPage({ params }: { params: { id: string } }
           </div>
         </section>
 
-        <section className="mt-16">
+        <section className="mt-16 hidden">
           <h2 className="text-2xl font-serif font-semibold mb-6">Preguntas frecuentes</h2>
           <Accordion type="single" collapsible className="w-full">
             {[

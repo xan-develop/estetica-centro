@@ -1,15 +1,16 @@
 "use client"
-
 import Link from "next/link"
 import { useState , useEffect, use } from "react"
-import { Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Toggle } from "@radix-ui/react-toggle"
 import { Moon , Sun } from "lucide-react"
 import { motion } from "framer-motion"
+import Image from "next/image"
+import Carrito from "./carrito"
+import { useCart } from "../cart-context"
 
 export default function Header() {
+  const {quantity} = useCart()
   const [isOpen, setIsOpen] = useState(false)
   const [theme, setTheme] = useState('light')
   useEffect(() => {
@@ -24,31 +25,34 @@ export default function Header() {
     { href: "/", label: "Inicio" },
     { href: "/servicios", label: "Servicios" },
     { href: "/nuestro-centro", label: "Nuestro Centro" },
-    { href: "/#testimonios", label: "Testimonios" },
-    { href: "/#contacto", label: "Contacto" },
   ]
 
   return (
     <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between py-4">
         <div className="flex items-center gap-2">
-          <Link href="/" className="text-xl font-semibold tracking-tight">
-            Belleza Esencial
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/logolixchel.png"
+              alt="Belleza Esencial"
+              width={100}
+              height={100}
+            />
           </Link>
           <div>
-          <motion.button
+            <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             style={{ backgroundColor: theme === 'light' ? 'black' : 'white' }}
-            className="rounded-full py-1 px-1"
+            className="rounded-full p-1 ml-5"
             aria-label="Cambiar tema"
-          >
+            >
             {theme === 'light' ? (
-            <Moon className="text-white" onClick={() => setTheme('dark')} />
+            <Moon className="text-white h-4 w-4" onClick={() => setTheme('dark')} />
             ) : (
-            <Sun className="text-black" onClick={() => setTheme('light')} />
+            <Sun className="text-black h-4 w-4" onClick={() => setTheme('light')} />
             )}
-          </motion.button>
+            </motion.button>
           </div>
         </div>
         <nav className="hidden md:flex items-center gap-6">
@@ -59,12 +63,9 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" className="hidden md:flex">
-            <Phone className="mr-2 h-4 w-4" />
-            Llamar ahora
-          </Button>
+          <Carrito itemCount={quantity} />
           <Button size="sm" asChild>
-            <Link href="/reservar">Reservar cita</Link>
+            <Link href="/compra">Reservar cita</Link>
           </Button>
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>

@@ -4,6 +4,7 @@ import { Montserrat } from "next/font/google"
 import "./globals.css"
 import Header from "@/components/layout/header"
 import Footer from "@/components/layout/footer"
+import { CartProvider } from "@/components/cart-context"
 
 const inter = Montserrat({subsets: ['latin']})
 
@@ -22,11 +23,13 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <body className={inter.className}>
+        <CartProvider>
         <div className="flex min-h-screen flex-col">
           <Header />
           {children}
           <Footer />
         </div>
+        </CartProvider>
       </body>
     </html>
   )

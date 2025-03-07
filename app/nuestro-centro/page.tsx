@@ -14,8 +14,8 @@ export default function NuestroCentroPage() {
     <main className="flex-1">
       <section className="bg-muted py-12 md:py-24">
         <div className="container px-4 md:px-6">
-          <h1 className="text-3xl font-serif font-bold tracking-tighter sm:text-5xl text-center mb-8">
-            Bienvenido a Belleza Esencial
+          <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-8">
+            Bienvenido a Lixchel
           </h1>
           <p className="text-xl text-muted-foreground text-center max-w-[800px] mx-auto">
             Descubre el espacio donde la tradición se encuentra con la innovación para ofrecerte los mejores
@@ -30,13 +30,13 @@ export default function NuestroCentroPage() {
         <div className="container px-4 md:px-6">
           <div className="grid gap-12 md:grid-cols-2 items-center">
             <div>
-              <h2 className="text-3xl font-serif font-bold tracking-tighter mb-4">Nuestra Misión</h2>
+              <h2 className="text-3xl font-bold tracking-tighter mb-4">Nuestra Misión</h2>
               <p className="text-lg text-muted-foreground mb-6">
                 En Belleza Esencial, nos dedicamos a realzar la belleza natural de cada cliente, combinando técnicas
                 tradicionales con las últimas innovaciones en estética. Nuestro objetivo es proporcionar un espacio
                 donde puedas relajarte, rejuvenecer y sentirte lo mejor posible.
               </p>
-              <h3 className="text-2xl font-serif font-semibold mb-2">¿Por qué elegirnos?</h3>
+              <h3 className="text-2xl font-semibold mb-2">¿Por qué elegirnos?</h3>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-center">
                   <svg
@@ -91,7 +91,7 @@ export default function NuestroCentroPage() {
             </div>
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-2xl font-serif font-semibold mb-4">Nuestra Historia</h3>
+                <h3 className="text-2xl font-semibold mb-4">Nuestra Historia</h3>
                 <p className="text-muted-foreground mb-4">
                   Fundada en 2008 por María Rodríguez, Belleza Esencial nació con la visión de crear un espacio donde la
                   belleza y el bienestar se unieran en perfecta armonía.
