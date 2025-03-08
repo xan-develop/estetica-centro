@@ -7,12 +7,12 @@ const {
   processRestNotification
 } = createRedsysAPI({
   urls: SANDBOX_URLS,
-  secretKey: 'sq7HjrUOBfKmC576ILgskD5srU870gJ7'
+  secretKey: process.env.REDSYS_SECRET_KEY as string
 });
 
 const merchantInfo = {
-  DS_MERCHANT_MERCHANTCODE: '263100000',
-  DS_MERCHANT_TERMINAL: '90'
+  DS_MERCHANT_MERCHANTCODE: process.env.REDSYS_MERCHANT_CODE as string,
+  DS_MERCHANT_TERMINAL: process.env.REDSYS_TERMINAL as string,
 } as const;
 
 export async function GET(req: NextRequest) {
@@ -22,8 +22,8 @@ export async function GET(req: NextRequest) {
   const amount = searchParams.get('amount') || '49.99';
   const fullName = searchParams.get('fullName') || '';
   const currency = searchParams.get('currency') || 'EUR';
-console.log('amount', amount);
-console.log('fullName', fullName);
+  console.log('amount', amount);
+  console.log('fullName', fullName);
   const orderId = randomTransactionId();
 
   const currencyInfo = CURRENCIES[currency as keyof typeof CURRENCIES];
