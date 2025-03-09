@@ -10,9 +10,8 @@ const inter = Montserrat({subsets: ['latin']})
 
 
 export const metadata: Metadata = {
-  title: "Belleza Esencial - Centro de Estética",
+  title: "Lixchel - Centro de Estética",
   description: "Centro de estética especializado en mejorar tu físico con tratamientos personalizados",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
