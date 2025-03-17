@@ -9,6 +9,69 @@ import Calform from "@/components/booking/calform"
 import ContactInfo from "@/components/booking/contact-info"
 import LocationMap from "@/components/booking/location-map"
 import Link from "next/link"
+import { motion } from "framer-motion"
+
+// Versiones de componentes con motion
+const MotionCard = motion(Card)
+const MotionDiv = motion.div
+
+// Variantes de animación
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { 
+    opacity: 1,
+    transition: { 
+      staggerChildren: 0.2,
+      delayChildren: 0.3
+    }
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      staggerChildren: 0.1,
+      staggerDirection: -1
+    }
+  }
+}
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { 
+    y: 0, 
+    opacity: 1,
+    transition: { 
+      type: "spring", 
+      stiffness: 100,
+      damping: 12
+    }
+  },
+  exit: { 
+    y: 20, 
+    opacity: 0,
+    transition: { 
+      duration: 0.2
+    }
+  }
+}
+
+const headerVariants = {
+  hidden: { opacity: 0, y: -30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { 
+      duration: 0.6, 
+      ease: "easeOut" 
+    }
+  },
+  exit: { 
+    opacity: 0, 
+    y: -20,
+    transition: { 
+      duration: 0.3
+    }
+  }
+}
 
 interface ContactDetail {
   icon: React.ElementType
@@ -20,7 +83,7 @@ const CONTACT_DETAILS: ContactDetail[] = [
   {
     icon: MapPin,
     title: "Dirección",
-    details: ["Calle Ejemplo, 123", "28001 Madrid, España"]
+    details: ["C/Aulaga 1 Agua dulce", "38687 Santa Cruz de Tenerife, España"]
   },
   {
     icon: Clock,
@@ -30,12 +93,12 @@ const CONTACT_DETAILS: ContactDetail[] = [
   {
     icon: Phone,
     title: "Teléfono",
-    details: ["+34 912 345 678"]
+    details: ["+34 604 85 33 83"]
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["info@tuestetica.com"]
+    details: ["chirmatesl@gmail.com"]
   }
 ]
 
@@ -45,37 +108,51 @@ export default function BookingForm() {
 
   return (
     <section className="container mx-auto py-12 px-4">
-      <div className="max-w-4xl mx-auto">
+      <MotionDiv 
+        className="max-w-4xl mx-auto"
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        variants={containerVariants}
+      >
         <BookingHeader />
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-1 lg:row-span-2">
+          <MotionDiv className="lg:col-span-1 lg:row-span-2" variants={itemVariants}>
             <LocationCard />
-          </div>
+          </MotionDiv>
           <div className="lg:col-span-2 space-y-6">
-            <BookingCalendarCard />
-            <ContactCard contactDetails={CONTACT_DETAILS} />
+            <MotionDiv variants={itemVariants}>
+              <BookingCalendarCard />
+            </MotionDiv>
+            <MotionDiv variants={itemVariants}>
+              <ContactCard contactDetails={CONTACT_DETAILS} />
+            </MotionDiv>
           </div>
         </div>
-      </div>
+      </MotionDiv>
     </section>
   )
 }
 
 function BookingHeader() {
   return (
-    <div className="text-center mb-10">
+    <MotionDiv className="text-center mb-10" variants={headerVariants}>
       <h1 className="text-3xl font-bold mb-3 text-primary">Reserva tu cita</h1>
       <p className="text-gray-600 max-w-2xl mx-auto">
         Agenda tu próxima visita de manera rápida y sencilla con nuestro sistema de reservas online.
       </p>
-    </div>
+    </MotionDiv>
   )
 }
 
 function BookingCalendarCard() {
   return (
-    <Card className="border border-gray-200">
+    <MotionCard 
+      className="border border-gray-200"
+      whileHover={{ boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)", scale: 1.01 }}
+      transition={{ duration: 0.2 }}
+    >
       <CardHeader className="bg-primary/5">
         <CardTitle className="flex items-center gap-2">
           <Calendar className="h-5 w-5 text-primary" />
@@ -90,13 +167,17 @@ function BookingCalendarCard() {
           <Calform />
         </div>
       </CardContent>
-    </Card>
+    </MotionCard>
   )
 }
 
 function LocationCard() {
   return (
-    <Card className="border border-gray-200">
+    <MotionCard 
+      className="border border-gray-200"
+      whileHover={{ boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)", scale: 1.01 }}
+      transition={{ duration: 0.2 }}
+    >
       <CardHeader className="bg-primary/5">
         <CardTitle className="flex items-center gap-2">
           <MapPin className="h-5 w-5 text-primary" />
@@ -106,13 +187,17 @@ function LocationCard() {
       <CardContent className="p-0">
         <LocationMap />
       </CardContent>
-    </Card>
+    </MotionCard>
   )
 }
 
 function ContactCard({ contactDetails }: { contactDetails: ContactDetail[] }) {
   return (
-    <Card className="border border-gray-200">
+    <MotionCard 
+      className="border border-gray-200"
+      whileHover={{ boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)", scale: 1.01 }}
+      transition={{ duration: 0.2 }}
+    >
       <CardHeader className="bg-primary/5">
         <CardTitle className="flex items-center gap-2">
           <Phone className="h-5 w-5 text-primary" />
@@ -124,11 +209,16 @@ function ContactCard({ contactDetails }: { contactDetails: ContactDetail[] }) {
       </CardContent>
       <CardFooter className="p-4">
         <Link href="/#contacto">
+          <MotionDiv
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+          >
             <Button variant="default" className="w-full">
               Contáctanos
             </Button>
+          </MotionDiv>
         </Link>
       </CardFooter>
-    </Card>
+    </MotionCard>
   )
 }

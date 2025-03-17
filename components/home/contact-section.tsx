@@ -1,6 +1,7 @@
 import { Calendar, Mail, MapPin, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { contactInfo } from "@/lib/services-data"
+import Image from "next/image"
 
 export default function ContactSection() {
   return (
@@ -8,6 +9,15 @@ export default function ContactSection() {
       <div className="container grid items-center gap-6 px-4 md:px-6 lg:grid-cols-2 lg:gap-10">
         <div className="space-y-2">
           <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">¿Listo para transformar tu físico?</h2>
+          <div className="p-0">
+            <Image 
+              src="/img/consultoria.webp" 
+              alt="Tratamientos estéticos" 
+              width={600} 
+              height={200} 
+              className="rounded-lg shadow-md" 
+            />
+          </div>
           <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
             Agenda una consulta gratuita y descubre cómo podemos ayudarte a alcanzar tus objetivos.
           </p>

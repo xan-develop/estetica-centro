@@ -109,7 +109,7 @@ export default function HeroSection() {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="flex justify-center gap-6 pt-10"
           >
-            <Link href="https://www.instagram.com/tu_cuenta" target="_blank" className="text-primary hover:text-primary/80">
+            <Link href="https://www.instagram.com/lixchel_/" target="_blank" className="text-primary hover:text-primary/80">
               <Instagram className="h-6 w-6" />
             </Link>
             <Link href={`https://wa.me/${contactInfo.whatsapp}`} target="_blank" className="text-primary hover:text-primary/80">

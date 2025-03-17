@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+'use client'
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -6,22 +6,10 @@ import { ChevronRight, Clock, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { useCart } from "@/components/cart-context"
 
 // Importa los datos de servicios (asegúrate de que este archivo exista y contenga los datos)
 import { serviceCategories } from "@/lib/services-data"
-
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const service = findService(params.id)
-  if (!service) {
-    return {
-      title: "Servicio no encontrado",
-    }
-  }
-  return {
-    title: `${service.title} - Centro de estética lixchel`,
-    description: service.description,
-  }
-}
 
 function findService(id: string) {
   for (const category of serviceCategories) {
@@ -33,6 +21,7 @@ function findService(id: string) {
 
 export default function ServiceDetailPage({ params }: { params: { id: string } }) {
   const service = findService(params.id)
+  const { agregarAlCarrito } = useCart(); // Usa el hook para acceder a las funciones del carrito
 
   if (!service) {
     notFound()
@@ -79,6 +68,9 @@ export default function ServiceDetailPage({ params }: { params: { id: string } }
             </div>
             <Button size="lg" className="w-full md:w-auto" asChild>
               <Link href={`/reservar?servicio=${service.id}`}>Reservar este servicio</Link>
+            </Button>
+            <Button size="lg" className="w-full md:w-auto ml-4 bg-red-200 text-black" onClick={() => agregarAlCarrito({ id: service.id, title: service.title, price: service.price })}>
+              Añadir al carrito
             </Button>
           </div>
         </div>

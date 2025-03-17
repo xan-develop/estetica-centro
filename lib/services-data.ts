@@ -32,7 +32,7 @@ export const serviceCategories = [
         "description": "Sistema de depilación láser de última generación que combina tecnología SHR y luz exclusiva para garantizar resultados óptimos.",
         "price": 30,
         "duration": "1€ el minuto - mínimo 30 minutos",
-        "image": "/placeholder.svg?height=300&width=400",
+        "image": "/img/fototerapia.webp?height=300&width=400",
         "benefits": [
           "100% indoloro",
           "Apto para todos los tipos de piel y cualquier época del año",
@@ -53,7 +53,7 @@ export const serviceCategories = [
           "Tratamiento estético no invasivo que ayuda a reducir grasa localizada y mejorar la apariencia de la piel.",
         price: 15,
         duration: "1€ el minuto - mínimo 15 minutos",
-        image: "/fotos/sesion_maderoterapia_024.webp?height=300&width=400",
+        image: "/img/mesoterapia.webp?height=300&width=400",
         benefits: [
           "Elimina grasa localizada",
           "Mejora la elasticidad de la piel",
@@ -73,7 +73,7 @@ export const serviceCategories = [
           "Terapia de calor que ayuda a la eliminación de toxinas, mejora la circulación y favorece la reducción de medidas.",
         price: 15,
         duration: "1€ el minuto - mínimo 15 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/img/manta-termica.webp?height=300&width=400",
         benefits: [
           "Elimina toxinas",
           "Favorece la quema de grasa",
@@ -93,7 +93,7 @@ export const serviceCategories = [
           "La radiofrecuencia utiliza ondas electromagnéticas de alta frecuencia para calentar las capas de la dermis de forma controlada",
         price: 15,
         duration: "1€ el minuto - mínimo 15 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/img/radiofrecuencia.webp?height=300&width=400",
         benefits: [
           "Estimula la producción de colágeno",
           "Reafirma y tonifica la piel",
@@ -113,7 +113,7 @@ export const serviceCategories = [
           "Técnica de ultrasonido que ayuda a eliminar grasa localizada y reducir medidas sin cirugía.",
         price: 15,
         duration: "1€ el minuto - mínimo 30 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/img/cavitacion.webp?height=300&width=400",
         benefits: [
           "Elimina grasa localizada",
           "Mejora la apariencia de la piel",
@@ -133,7 +133,7 @@ export const serviceCategories = [
           "Tratamiento de compresión que mejora la circulación, reduce la retención de líquidos y ayuda en la recuperación muscular.",
         price: 15,
         duration: "1€ el minuto - mínimo 45 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/img/presoterapia.webp?height=300&width=400",
         benefits: [
           "Mejora la circulación",
           "Reduce la retención de líquidos",
@@ -153,7 +153,7 @@ export const serviceCategories = [
           "Terapia de succión que ayuda a mejorar la circulación, reducir la celulitis y tonificar la piel.",
         price: 15,
         duration: "1€ el minuto - mínimo 30 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/img/vacumterapia.webp?height=300&width=400",
         benefits: [
           "Reduce la celulitis",
           "Estimula la producción de colágeno",
@@ -181,7 +181,7 @@ export const serviceCategories = [
           "Elimina impurezas y deja la piel fresca y revitalizada.",
         price: 40,
         duration: "45 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/img/limpiezabasica.webp?height=300&width=400",
         benefits: [
           "Elimina impurezas de la piel",
           "Refresca y revitaliza el rostro",
@@ -201,7 +201,7 @@ export const serviceCategories = [
           "Elimina impurezas, puntos negros y células muertas dejando tu piel limpia, fresca y luminosa.",
         price: 65,
         duration: "60 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/img/limpiezaprofunda.webp?height=300&width=400",
         benefits: [
           "Elimina puntos negros y células muertas",
           "Hidratación profunda",
@@ -221,7 +221,7 @@ export const serviceCategories = [
           "Reafirma y rejuvenece la piel con una combinación avanzada de Dermapen y hilos tensores.",
         price: 105,
         duration: "60 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/img/dermapen-hilos.webp?height=300&width=400",
         benefits: [
           "Reafirma la piel",
           "Reduce arrugas y líneas de expresión",
@@ -241,7 +241,7 @@ export const serviceCategories = [
           "Estimula la regeneración de la piel mientras proporciona hidratación profunda.",
         price: 60,
         duration: "60 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/img/dermapen-hidratacionlabial.webp?height=300&width=400",
         benefits: [
           "Regenera la piel",
           "Aporta hidratación profunda",
@@ -261,7 +261,7 @@ export const serviceCategories = [
           "Tratamiento para labios que mejora la textura y los mantiene hidratados.",
         price: 35,
         duration: "30 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/img/dermapen-hidratacion.webp?height=300&width=400",
         benefits: [
           "Mejora la textura de los labios",
           "Aporta hidratación profunda",
@@ -273,7 +273,27 @@ export const serviceCategories = [
           "Aplicación de suero hidratante",
           "Masaje labial"
         ]
+      },
+      {
+        id: "dermapen-labial-hidratacion-color",
+        title: "Hidratación Labial con Color",
+        description: "Tratamiento que hidrata los labios mientras aporta un toque de color natural.",
+        price: 45,
+        duration: "30 minutos",
+        image: "/img/dermapen-color-hidratacion.webp?height=300&width=400",
+        benefits: [
+          "Hidratación profunda",
+          "Realza el color natural de los labios",
+          "Suaviza y mejora la textura labial"
+        ],
+        process: [
+          "Limpieza labial",
+          "Exfoliación suave",
+          "Aplicación de suero hidratante con color",
+          "Masaje para absorción"
+        ]
       }
+      
     ],
   },
   {
@@ -289,7 +309,7 @@ export const serviceCategories = [
           "Masaje relajante centrado en la espalda para aliviar tensiones y mejorar la circulación.",
         price: 35,
         duration: "45 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/img/masaje-espalda.webp?height=300&width=400",
         benefits: [
           "Alivio de tensiones musculares",
           "Mejora la circulación sanguínea",
@@ -309,7 +329,7 @@ export const serviceCategories = [
           "Técnica suave y efectiva para liberar la tensión acumulada en el cuello.",
         price: 35,
         duration: "45 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/img/masaje-cuello.webp?height=300&width=400",
         benefits: [
           "Alivio de la tensión cervical",
           "Reducción de dolores de cabeza",
@@ -329,7 +349,7 @@ export const serviceCategories = [
           "Estimula la circulación facial y reduce el estrés proporcionando una sensación de bienestar.",
         price: 35,
         duration: "45 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/img/masaje-facial.webp?height=300&width=400",
         benefits: [
           "Mejora la circulación facial",
           "Reduce la tensión y el estrés",
@@ -349,7 +369,7 @@ export const serviceCategories = [
           "Alivia la pesadez en las piernas y mejora la circulación sanguínea.",
         price: 35,
         duration: "45 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/img/masaje-piernas.webp?height=300&width=400",
         benefits: [
           "Mejora la circulación en piernas",
           "Alivio de la sensación de pesadez",
@@ -369,7 +389,7 @@ export const serviceCategories = [
           "Terapia para relajar los pies cansados y mejorar el bienestar general.",
         price: 35,
         duration: "45 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/img/masaje-pies.webp?height=300&width=400",
         benefits: [
           "Alivio de la fatiga en los pies",
           "Mejora la circulación en los pies y tobillos",
@@ -389,7 +409,7 @@ export const serviceCategories = [
           "Masaje integral para liberar estrés y relajar todos los músculos del cuerpo.",
         price: 75,
         duration: "60 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/img/masaje-cuerpo.webp?height=300&width=400",
         benefits: [
           "Relajación total del cuerpo",
           "Alivio del estrés y tensiones",
@@ -409,7 +429,7 @@ export const serviceCategories = [
           "Técnica profunda que ayuda a aliviar tensiones musculares y mejorar la movilidad.",
         price: 90,
         duration: "60 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/img/masaje-des.webp?height=300&width=400",
         benefits: [
           "Alivio de contracturas y tensiones musculares",
           "Mejora de la movilidad y flexibilidad",

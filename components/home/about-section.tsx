@@ -55,8 +55,9 @@ export default function AboutSection() {
               ))}
             </ul>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Button>Conoce a nuestro equipo</Button>
-              <Button variant="outline">Nuestra filosofía</Button>
+                <Button asChild>
+                <a href="/nuestro-centro">Nuestras instalaciones</a>
+                </Button>
             </div>
           </div>
         </div>
