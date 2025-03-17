@@ -44,7 +44,7 @@ export default function Header() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             style={{ backgroundColor: theme === 'light' ? 'black' : 'white' }}
-            className="rounded-full p-1 ml-5"
+            className="rounded-full p-1 ml-5 hidden"
             aria-label="Cambiar tema"
             >
             {theme === 'light' ? (
@@ -64,8 +64,8 @@ export default function Header() {
         </nav>
         <div className="flex items-center gap-2">
           <Carrito itemCount={quantity} />
-          <Button size="sm" asChild>
-            <Link href="/compra">Reservar cita</Link>
+          <Button size="sm" className="hidden md:flex" asChild>
+            <Link href="/compra">Finalizar compra</Link>
           </Button>
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>

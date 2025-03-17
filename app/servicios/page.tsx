@@ -24,7 +24,7 @@ const serviceCategories = [
           "Terapia con herramientas de madera diseñadas para modelar el cuerpo, reducir medidas y mejorar la circulación.",
         price: 15,
         duration: "1€ minuto - mínimo 5 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/sesion_maderoterapia_004.webp",
       },
       {
         id: "mesoterapia",
@@ -33,7 +33,7 @@ const serviceCategories = [
           "Tratamiento estético no invasivo que ayuda a reducir grasa localizada y mejorar la apariencia de la piel.",
         price: 15,
         duration: "1€ minuto - mínimo 15 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/sesion_maderoterapia_004.webp",
       },
       {
         id: "manta-termica",
@@ -42,7 +42,7 @@ const serviceCategories = [
           "Terapia de calor que ayuda a la eliminación de toxinas, mejora la circulación y favorece la reducción de medidas.",
         price: 15,
         duration: "1€ minuto - mínimo 15 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/sesion_maderoterapia_004.webp",
       },
       {
         id: "radiofrecuencia",
@@ -51,7 +51,7 @@ const serviceCategories = [
           "Tratamiento reafirmante que estimula la producción de colágeno y elastina para mejorar la firmeza de la piel.",
         price: 15,
         duration: "1€ minuto - mínimo 15 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/sesion_maderoterapia_004.webp",
       },
       {
         id: "cavitacion",
@@ -60,7 +60,7 @@ const serviceCategories = [
           "Técnica de ultrasonido que ayuda a eliminar grasa localizada y reducir medidas sin cirugía.",
         price: 15,
         duration: "1€ minuto - mínimo 30 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/sesion_maderoterapia_004.webp",
       },
       {
         id: "presoterapia",
@@ -69,7 +69,15 @@ const serviceCategories = [
           "Tratamiento de compresión que mejora la circulación, reduce la retención de líquidos y ayuda en la recuperación muscular.",
         price: 15,
         duration: "1€ minuto - mínimo 45 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/sesion_maderoterapia_004.webp",
+      },
+      {
+        "id": "shr-v-laser",
+        "title": "SHR-V Laser System",
+        "description": "Sistema de depilación láser de última generación que combina tecnología SHR y luz exclusiva para garantizar resultados óptimos.",
+        "price": 30,
+        "duration": "1€ el minuto - mínimo 30 minutos",
+        "image": "fotos/sesion_maderoterapia_004.webp",
       },
       {
         id: "vacumterapia",
@@ -78,7 +86,7 @@ const serviceCategories = [
           "Terapia de succión que ayuda a mejorar la circulación, reducir la celulitis y tonificar la piel.",
         price: 15,
         duration: "1€ minuto - mínimo 30 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/sesion_maderoterapia_004.webp",
       },
     ],
   },
@@ -95,7 +103,7 @@ const serviceCategories = [
           "Elimina impurezas y deja la piel fresca y revitalizada.",
         price: 40,
         duration: "45 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/screenshot_chat_011.webp",
       },
       {
         id: "limpieza-profunda",
@@ -104,7 +112,7 @@ const serviceCategories = [
           "Elimina impurezas, puntos negros y células muertas dejando tu piel limpia, fresca y luminosa.",
         price: 65,
         duration: "60 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/screenshot_chat_011.webp",
       },
       {
         id: "dermapen-hilos",
@@ -113,7 +121,7 @@ const serviceCategories = [
           "Reafirma y rejuvenece la piel con una combinación avanzada de Dermapen y hilos tensores.",
         price: 105,
         duration: "60 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/screenshot_chat_011.webp",
       },
       {
         id: "dermapen-hidratacion",
@@ -122,7 +130,7 @@ const serviceCategories = [
           "Estimula la regeneración de la piel mientras proporciona hidratación profunda.",
         price: 60,
         duration: "60 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/screenshot_chat_011.webp",
       },
       {
         id: "dermapen-labial-hidratacion",
@@ -131,7 +139,7 @@ const serviceCategories = [
           "Tratamiento para labios que mejora la textura y los mantiene hidratados.",
         price: 35,
         duration: "30 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/screenshot_chat_011.webp",
       },
       {
         id: "dermapen-labial-hidratacion-color",
@@ -140,7 +148,7 @@ const serviceCategories = [
           "Añade un toque de color mientras hidrata y mejora la apariencia de los labios.",
         price: 45,
         duration: "30 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/screenshot_chat_011.webp",
       },
     ],
   },
@@ -157,7 +165,7 @@ const serviceCategories = [
           "Masaje relajante centrado en la espalda para aliviar tensiones y mejorar la circulación.",
         price: 35,
         duration: "45 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/sesion_maderoterapia_005.webp",
       },
       {
         id: "masaje-relajante-cuello",
@@ -166,7 +174,7 @@ const serviceCategories = [
           "Técnica suave y efectiva para liberar la tensión acumulada en el cuello.",
         price: 35,
         duration: "45 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/sesion_maderoterapia_005.webp",
       },
       {
         id: "masaje-relajante-cara",
@@ -175,7 +183,7 @@ const serviceCategories = [
           "Estimula la circulación facial y reduce el estrés proporcionando una sensación de bienestar.",
         price: 35,
         duration: "45 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/sesion_maderoterapia_005.webp",
       },
       {
         id: "masaje-relajante-piernas",
@@ -184,7 +192,7 @@ const serviceCategories = [
           "Alivia la pesadez en las piernas y mejora la circulación sanguínea.",
         price: 35,
         duration: "45 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/sesion_maderoterapia_005.webp",
       },
       {
         id: "masaje-relajante-pies",
@@ -193,7 +201,7 @@ const serviceCategories = [
           "Terapia para relajar los pies cansados y mejorar el bienestar general.",
         price: 35,
         duration: "45 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/sesion_maderoterapia_005.webp",
       },
       {
         id: "masaje-relajante-cuerpo-completo",
@@ -202,7 +210,7 @@ const serviceCategories = [
           "Masaje integral para liberar estrés y relajar todos los músculos del cuerpo.",
         price: 75,
         duration: "60 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/sesion_maderoterapia_005.webp",
       },
       {
         id: "masaje-descontracturante-cuerpo-completo",
@@ -211,7 +219,7 @@ const serviceCategories = [
           "Técnica profunda que ayuda a aliviar tensiones musculares y mejorar la movilidad.",
         price: 90,
         duration: "60 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "fotos/sesion_maderoterapia_005.webp",
       },
     ],
   },

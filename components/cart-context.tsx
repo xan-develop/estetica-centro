@@ -1,5 +1,6 @@
 'use client'
 import React, { createContext, useState, useContext, useEffect } from 'react';
+import { NewToast } from './ui/toast';
 
 interface CarritoItem {
   id: string;
@@ -13,12 +14,24 @@ interface CartContextProps {
   quantity: number;
   agregarAlCarrito: (item: CarritoItem) => void;
   eliminarDelCarrito: (id: string) => void;
+  toast: {
+    visible: boolean;
+    message: string;
+    title: string;
+    variant: 'success' | 'error';
+  };
 }
 
 const CartContext = createContext<CartContextProps | undefined>(undefined);
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [carrito, setCarrito] = useState<CarritoItem[]>([]);
+  const [toast, setToast] = useState({
+    visible: false,
+    message: '',
+    title: '',
+    variant: 'success'
+  });
 
   useEffect(() => {
     // Cargar el carrito desde el localStorage al montar el componente
@@ -56,15 +69,43 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         return [...prevCarrito, { ...item, quantity: 1 }];
       }
     });
+    
+    // Mostrar toast
+    setToast({
+      visible: true,
+      message: `${item.title} ha sido añadido al carrito`,
+      title: '¡Añadido al carrito!',
+      variant: 'success'
+    });
+    
+    // Ocultar toast después de 3 segundos
+    setTimeout(() => {
+      setToast(prev => ({ ...prev, visible: false }));
+    }, 1000);
   };
 
   const eliminarDelCarrito = (id: string) => {
+    const item = carrito.find(item => item.id === id);
     setCarrito(prevCarrito => prevCarrito.filter(item => item.id !== id));
+    
+    // Mostrar toast
+    setToast({
+      visible: true,
+      message: `${item?.title} ha sido eliminado del carrito`,
+      title: '¡Eliminado del carrito!',
+      variant: 'error'
+    });
+    
+    // Ocultar toast después de 3 segundos
+    setTimeout(() => {
+      setToast(prev => ({ ...prev, visible: false }));
+    }, 1000);
   };
 
   return (
-    <CartContext.Provider value={{ carrito, agregarAlCarrito, eliminarDelCarrito, quantity }}>
+    <CartContext.Provider value={{ carrito, agregarAlCarrito, eliminarDelCarrito, quantity, toast }}>
       {children}
+      {toast.visible && <NewToast title={toast.title} message={toast.message} variant={toast.variant} />}
     </CartContext.Provider>
   );
 };

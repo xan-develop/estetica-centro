@@ -1,101 +1,146 @@
 'use client'
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronRight, Clock, MapPin } from "lucide-react"
+import { ChevronRight, Clock, MapPin, Star, Instagram, Mail, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
+import { motion, useScroll } from "framer-motion"
 import BlurText from "./ui/textochulo"
+import { contactInfo } from "@/lib/services-data"
 
 export default function HeroSection() {
   return (
-    <section id="inicio" className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-muted overflow-hidden">
-      <div className="container px-4 md:px-6">
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
+    <section id="inicio" className="w-full bg-muted/30 py-12 md:py-16 lg:py-20 overflow-hidden relative">
+      {/* Imagen de fondo */}
+      <motion.div 
+        className="absolute inset-0 z-0"
+        style={{
+          y: useScroll().scrollY,
+          scale: 1.1
+        }}
+      >
+        <Image
+          src="fotos/sesion_maderoterapia_008.webp" 
+          alt="Fondo decorativo"
+          fill
+          className="object-cover opacity-15"
+          priority
+        />
+      </motion.div>
+
+      <div className="container mx-auto px-4 sm:px-5 relative z-10">
+        <div className="flex flex-col items-center">
+          {/* Logo Container - Centrado */}
           <motion.div 
-            className="flex flex-col justify-center space-y-4"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="relative max-w-xl mx-auto mb-10"
           >
-            <div className="space-y-2">
-                <BlurText
-                  text="Mejora tu fisico y modela tu cuerpo"
-                  delay={130}
-                  animateBy="words"
-                  direction="top"
-                  className="text-6xl mb-8 font-bold"
-                />
-              <motion.p 
-                className="max-w-[600px] text-muted-foreground md:text-xl"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-              >
-                En Belleza Esencial, combinamos técnicas tradicionales y avanzadas para ayudarte a alcanzar tu mejor
-                versión.
-              </motion.p>
+            {/* Decorative Elements */}
+            <div className="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-primary/40"></div>
+            <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-primary/40"></div>
+            
+            {/* Glowing Effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/20 to-primary/10 rounded-3xl blur-3xl opacity-50"></div>
+            
+            {/* Logo - estilo mejorado */}
+            <div className="relative backdrop-blur-md rounded-2xl p-6 border border-primary/10">
+              <Image
+                src="/logolixchel.png"
+                alt="Lixchel"
+                width={400}
+                height={200}
+                className="w-full h-auto transform transition-all duration-700 hover:scale-105 drop-shadow-sm"
+                priority
+              />
             </div>
+          </motion.div>
+
+          {/* Contenido principal */}
+          <div className="max-w-4xl mx-auto text-center">
             <motion.div 
-              className="flex flex-col gap-2 min-[400px]:flex-row"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
+              transition={{ duration: 0.5 }}
+              className="space-y-4 mb-8"
             >
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="lg" asChild>
-                  <Link href="/reservar">
-                    Consulta gratuita
-                    <ChevronRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button variant="outline" size="lg" asChild>
-                  <Link href="/servicios">Conoce nuestros servicios</Link>
-                </Button>
-              </motion.div>
+              <p className="text-primary font-medium tracking-[0.2em] mb-2 text-sm md:text-base">EXPERIENCIA EXCLUSIVA</p>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif leading-tight">
+                Tu belleza natural, <br/>
+                <span className="text-primary">potenciada</span>
+              </h1>
+              <p className="text-muted-foreground text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
+                Descubre tratamientos personalizados que realzan tu belleza natural con técnicas innovadoras y resultados excepcionales.
+              </p>
             </motion.div>
+
+            {/* Botones centrados */}
             <motion.div 
-              className="flex items-center gap-4 text-sm"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex flex-col sm:flex-row justify-center gap-4 pt-2 mb-10"
             >
-              <motion.div 
-                className="flex items-center gap-1"
-                whileHover={{ scale: 1.1, color: "#007acc" }}
+              <Button 
+                size="lg"
+                className="group bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 h-10 text-base font-medium shadow-md shadow-primary/20"
+                asChild
               >
-                <Clock className="h-4 w-4" />
-                <span>Lun-Sáb: 9:00-20:00</span>
-              </motion.div>
-              <motion.div 
-                className="flex items-center gap-1"
-                whileHover={{ scale: 1.1, color: "#007acc" }}
+                <Link href="/reservar">
+                  Reservar Cita
+                  <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="border border-primary text-primary hover:bg-primary/5 rounded-full px-6 h-10 text-base font-medium"
               >
-                <MapPin className="h-4 w-4" />
-                <span>Ubicación céntrica</span>
-              </motion.div>
+                <Link href="/servicios">
+                  Ver Servicios
+                </Link>
+              </Button>
             </motion.div>
-          </motion.div>
+          </div>
+ {/* Iconos de contacto */}
           <motion.div 
-            className="flex items-center justify-center"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="flex justify-center gap-6 pt-10"
           >
-            <motion.div
-              whileHover={{ scale: 1.03, rotate: 1 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <Image
-                src="/local/image6.jpeg"
-                width={850}
-                height={450}
-                alt="Centro de estética"
-                className="rounded-lg object-cover shadow-lg"
-              />
-            </motion.div>
+            <Link href="https://www.instagram.com/tu_cuenta" target="_blank" className="text-primary hover:text-primary/80">
+              <Instagram className="h-6 w-6" />
+            </Link>
+            <Link href={`https://wa.me/${contactInfo.whatsapp}`} target="_blank" className="text-primary hover:text-primary/80">
+              <Phone className="h-6 w-6" />
+            </Link>
+            <Link href={`mailto:${contactInfo.email}`} className="text-primary hover:text-primary/80">
+              <Mail className="h-6 w-6" />
+            </Link>
           </motion.div>
+          {/* Indicadores de calidad */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex flex-wrap justify-center gap-8 pt-10 mt-4"
+          >
+            <div className="flex items-center gap-2">
+              <Star className="h-5 w-5 text-primary" fill="currentColor" strokeWidth={1} />
+              <span className="text-sm text-muted-foreground">Excelencia garantizada</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Clock className="h-5 w-5 text-primary" strokeWidth={1.5} />
+              <span className="text-sm text-muted-foreground">Atención personalizada</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPin className="h-5 w-5 text-primary" strokeWidth={1.5} />
+              <span className="text-sm text-muted-foreground">{contactInfo.address}</span>
+            </div>
+          </motion.div>
+
+         
         </div>
       </div>
     </section>

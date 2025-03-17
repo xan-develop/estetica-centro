@@ -3,18 +3,18 @@ import { Card } from "@/components/ui/card"
 
 const testimonials = [
   {
-    name: "María García",
-    text: "Después de 10 sesiones, los resultados son increíbles. He reducido medidas y mi piel luce mucho más firme. El equipo es muy profesional y atento.",
+    name: "Anny Tortoza",
+    text: "Una experiencia única y su resultado maravilloso en solo 3 semanas notas muchísimo el cambio. Súper recomendado chirle hace maravillas. Enamorada del proceso.",
     rating: 5,
   },
   {
-    name: "Carlos Rodríguez",
-    text: "Nunca pensé que podría mejorar tanto mi físico. Los masajes terapéuticos han aliviado mi dolor de espalda crónico y me siento con más energía.",
+    name: "Alejandro Don",
+    text: "Una experiencia fantastica. Los numero 1 y los mas profesional de isla. absolutamente recomendado.",
     rating: 5,
   },
   {
-    name: "Laura Martínez",
-    text: "El tratamiento facial rejuvenecedor ha sido una revelación. Mi piel luce radiante y los signos de envejecimiento han disminuido notablemente.",
+    name: "Mariana Contreras",
+    text: "Me encantaron muchísimo justo lo que quería volvería sin dudarlo muchas gracias lo tienen todo en este centro…",
     rating: 5,
   },
 ]

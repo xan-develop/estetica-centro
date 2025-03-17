@@ -15,7 +15,7 @@ export default function AboutSection() {
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
           <div className="flex items-center justify-center">
             <Image
-              src="/tratamientos/masaje.jpg"
+              src="fotos/sesion_maderoterapia_017.webp"
               width={500}
               height={500}
               alt="Nuestro equipo"

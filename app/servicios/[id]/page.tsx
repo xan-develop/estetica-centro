@@ -118,43 +118,6 @@ export default function ServiceDetailPage({ params }: { params: { id: string } }
         </div>
 
         <section className="mt-16 hidden">
-          <h2 className="text-2xl font-serif font-semibold mb-6 text-center">Lo que dicen nuestros clientes</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                name: "María L.",
-                comment: "Increíble experiencia. Los resultados superaron mis expectativas.",
-                rating: 5,
-              },
-              {
-                name: "Carlos R.",
-                comment: "Profesionales expertos y ambiente relajante. Volveré sin duda.",
-                rating: 5,
-              },
-              {
-                name: "Laura M.",
-                comment: "El mejor tratamiento que he probado. Resultados visibles desde la primera sesión.",
-                rating: 5,
-              },
-            ].map((testimonial, index) => (
-              <Card key={index} className="text-center">
-                <CardContent className="pt-6">
-                  <div className="flex justify-center mb-2">
-                    {Array(testimonial.rating)
-                      .fill(null)
-                      .map((_, i) => (
-                        <Star key={i} className="h-5 w-5 fill-primary text-primary" />
-                      ))}
-                  </div>
-                  <p className="mb-4 italic">"{testimonial.comment}"</p>
-                  <p className="font-semibold">{testimonial.name}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-16 hidden">
           <h2 className="text-2xl font-serif font-semibold mb-6">Preguntas frecuentes</h2>
           <Accordion type="single" collapsible className="w-full">
             {[

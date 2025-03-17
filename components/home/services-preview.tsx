@@ -23,7 +23,7 @@ const featuredServices = [
     title: "Masajes terapéuticos",
     description:
       "Alivia tensiones, mejora la circulación y disfruta de una experiencia relajante con nuestros masajes.",
-    image: "/tratamientos/image5_1.jpeg",
+    image: "fotos/sesion_maderoterapia_004.webp",
     link: "/servicios#masajes",
   },
 ]

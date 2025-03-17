@@ -13,7 +13,7 @@ export const serviceCategories = [
           "Terapia con herramientas de madera diseñadas para modelar el cuerpo, reducir medidas y mejorar la circulación.",
         price: 15,
         duration: "1€ el minuto - mínimo 15 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/fotos/sesion_maderoterapia_004.webp?height=300&width=400",
         benefits: [
           "Reduce celulitis y grasa localizada",
           "Mejora la circulación",
@@ -27,13 +27,33 @@ export const serviceCategories = [
         ]
       },
       {
+        "id": "shr-v-laser",
+        "title": "SHR-V Laser System",
+        "description": "Sistema de depilación láser de última generación que combina tecnología SHR y luz exclusiva para garantizar resultados óptimos.",
+        "price": 30,
+        "duration": "1€ el minuto - mínimo 30 minutos",
+        "image": "/placeholder.svg?height=300&width=400",
+        "benefits": [
+          "100% indoloro",
+          "Apto para todos los tipos de piel y cualquier época del año",
+          "50% menos sesiones que equipos convencionales",
+          "Sin zonas muertas, máxima comodidad y rapidez"
+        ],
+        "process": [
+          "Preparación de la piel",
+          "Ajuste del equipo según tipo de piel y zona",
+          "Aplicación de luz SHR en varias pasadas",
+          "Finalización con productos calmantes"
+        ]
+      },
+      {
         id: "mesoterapia",
         title: "Mesoterapia",
         description:
           "Tratamiento estético no invasivo que ayuda a reducir grasa localizada y mejorar la apariencia de la piel.",
         price: 15,
         duration: "1€ el minuto - mínimo 15 minutos",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/fotos/sesion_maderoterapia_024.webp?height=300&width=400",
         benefits: [
           "Elimina grasa localizada",
           "Mejora la elasticidad de la piel",
@@ -70,7 +90,7 @@ export const serviceCategories = [
         id: "radiofrecuencia",
         title: "Radiofrecuencia",
         description:
-          "Tratamiento reafirmante que estimula la producción de colágeno y elastina para mejorar la firmeza de la piel.",
+          "La radiofrecuencia utiliza ondas electromagnéticas de alta frecuencia para calentar las capas de la dermis de forma controlada",
         price: 15,
         duration: "1€ el minuto - mínimo 15 minutos",
         image: "/placeholder.svg?height=300&width=400",
@@ -407,3 +427,9 @@ export const serviceCategories = [
 ];  
 
 
+export const contactInfo = {
+  address: "C/Aulaga 1 Agua dulce (38687) Santa Cruz de Tenerife",
+  phone: "+34 822-695836",
+  whatsapp: "+34 604 85 33 83",
+  email: "lixchel@chirmate.com",
+}

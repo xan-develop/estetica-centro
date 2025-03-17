@@ -31,11 +31,9 @@ export default function NuestroCentroPage() {
           <div className="grid gap-12 md:grid-cols-2 items-center">
             <div>
               <h2 className="text-3xl font-bold tracking-tighter mb-4">Nuestra Misión</h2>
-              <p className="text-lg text-muted-foreground mb-6">
-                En Belleza Esencial, nos dedicamos a realzar la belleza natural de cada cliente, combinando técnicas
-                tradicionales con las últimas innovaciones en estética. Nuestro objetivo es proporcionar un espacio
-                donde puedas relajarte, rejuvenecer y sentirte lo mejor posible.
-              </p>
+                <p className="text-lg text-muted-foreground mb-6">
+                Nuestra misión es proporcionar servicios estéticos de alta calidad que realcen la belleza natural de nuestros clientes, utilizando las técnicas más avanzadas y productos de primera categoría. Nos comprometemos a ofrecer una experiencia personalizada y profesional en un ambiente acogedor y relajante.
+                </p>
               <h3 className="text-2xl font-semibold mb-2">¿Por qué elegirnos?</h3>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-center">
@@ -93,12 +91,11 @@ export default function NuestroCentroPage() {
               <CardContent className="p-6">
                 <h3 className="text-2xl font-semibold mb-4">Nuestra Historia</h3>
                 <p className="text-muted-foreground mb-4">
-                  Fundada en 2008 por María Rodríguez, Belleza Esencial nació con la visión de crear un espacio donde la
-                  belleza y el bienestar se unieran en perfecta armonía.
+                Somos Lixchel, un centro estético avanzado que está revolucionando el mundo de la estética con tratamientos innovadores, tanto invasivos como no invasivos, enfocados en el cuidado corporal y facial. 
+
                 </p>
                 <p className="text-muted-foreground mb-4">
-                  A lo largo de los años, hemos crecido y evolucionado, siempre manteniendo nuestro compromiso con la
-                  excelencia y la atención personalizada que nos caracteriza.
+                Utilizamos técnicas de alta tecnología para que nuestros clientes se sientan renovados y obtengan resultados excepcionales.
                 </p>
                 <p className="text-muted-foreground">
                   Hoy, nos enorgullece ser uno de los centros de estética más reconocidos de la ciudad, gracias a la

@@ -3,13 +3,16 @@ import React, { useState, useEffect } from 'react';
 import RedsysForm from '@/components/compra/RedsysForm';
 import { validateForm } from '@/lib/validation';
 import { useCart } from '../cart-context';
+import { set } from 'date-fns';
 
 interface PaymentButtonProps {
   amountToPay: string;
+  onPaymentStart: () => void;
+  onPaymentCancel: () => void;
 }
 
-const PaymentButton: React.FC<PaymentButtonProps> = ({ amountToPay }) => {
-   const { carrito} = useCart();
+const PaymentButton: React.FC<PaymentButtonProps> = ({ amountToPay, onPaymentStart, onPaymentCancel }) => {
+  const { carrito } = useCart();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState<{
     url: string;
@@ -17,7 +20,7 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({ amountToPay }) => {
     Ds_MerchantParameters: string;
     Ds_Signature: string;
   } | null>(null);
-  const [amount, setAmount] = useState<string>('49.99');
+  const [amount, setAmount] = useState<string>('0.00');
   const [orderId, setOrderId] = useState<string | null>(null);
   const [currency, setCurrency] = useState<string>('EUR');
   const [fullName, setFullName] = useState<string>('');
@@ -26,35 +29,46 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({ amountToPay }) => {
   const [fullNameError, setFullNameError] = useState<string | null>(null);
   const [phoneError, setPhoneError] = useState<string | null>(null);
   const [emailError, setEmailError] = useState<string | null>(null);
+  const [paymentPercentage, setPaymentPercentage] = useState<number>(100);
 
   useEffect(() => {
     setAmount(amountToPay);
   }, [amountToPay]);
 
   useEffect(() => {
-   console.log('url de entorno', process.env.NEXT_PUBLIC_BASE_URL);
+    console.log('url de entorno', process.env.NEXT_PUBLIC_BASE_URL);
     const datosPersona = localStorage.getItem('datosPersona');
+    let storedPercentage = sessionStorage.getItem('paymentPercentage'); // Obtener el porcentaje del sessionStorage
+    if (!storedPercentage) {
+      storedPercentage = '100';
+      sessionStorage.setItem('paymentPercentage', storedPercentage);
+    }
+    setPaymentPercentage(Number(storedPercentage));
     setAmount(amountToPay);
     if (datosPersona) {
       const formPdata = JSON.parse(datosPersona);
       setFullName(formPdata.fullName);
       setPhone(formPdata.phone);
       setEmail(formPdata.email);
+      console.log('datosPersona', datosPersona);
     }
   }, []);
 
   const handlePayment = async () => {
-   const isValid = await validateForm(fullName, phone, email, setFullNameError, setPhoneError, setEmailError);
-   if (!isValid) {
-     return;
-   }
-
-    setLoading(true);
-
+    onPaymentStart();
     try {
-      const url = `/api/payment?amount=${encodeURIComponent(amount)}&currency=EUR&fullName=${encodeURIComponent(fullName)}`;
-      const response = await fetch(url, {
-        method: 'GET',
+      const response = await fetch('/api/payment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          amount: Number(amountToPay).toFixed(2),
+          currency: 'EUR',
+          fullName: fullName,
+          carrito: carrito,
+          porcent: paymentPercentage 
+        }),
       });
 
       if (response.ok) {
@@ -68,9 +82,16 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({ amountToPay }) => {
           email: email,
           orderId: result.orderId,
           amount: amount,
-        }
+          paymentPercentage: paymentPercentage
+        };
+        
+        // Guardamos los datos personales
         localStorage.setItem('datosPersona', JSON.stringify(formPdata));
+        
+        // Guardamos el carrito como un array
         localStorage.setItem('carritoOk', JSON.stringify(carrito));
+        sessionStorage.setItem('paymentPercentage', String(paymentPercentage)); // Guardar el porcentaje en el sessionStorage
+        
         setLoading(false);
       } else {
         console.error('Error al obtener el formulario de pago');
@@ -80,6 +101,12 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({ amountToPay }) => {
       console.error('Error al procesar el pago:', error);
       setLoading(false);
     }
+  };
+
+  const handleCancel = () => {
+    setFormData(null);
+    setOrderId(null);
+    onPaymentCancel();
   };
 
   return (
@@ -149,7 +176,7 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({ amountToPay }) => {
           </button>
         </div>
       ) : (
-         <div className="space-y-6">
+        <div className="space-y-6">
          <div className="p-6 bg-green-50 border border-green-200 rounded-xl shadow-sm">
            <p className="text-left text-lg font-medium text-green-800">
              Pedido <strong className="text-green-900">{orderId}</strong> creado correctamente
@@ -176,10 +203,7 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({ amountToPay }) => {
           />
 
           <button
-            onClick={() => {
-              setFormData(null);
-              setOrderId(null);
-            }}
+            onClick={handleCancel}
             className="w-full py-2 px-4 bg-black text-destructive-foreground rounded-md font-bold hover:bg-destructive/80 transition-colors duration-200"
           >
             Cancelar y volver

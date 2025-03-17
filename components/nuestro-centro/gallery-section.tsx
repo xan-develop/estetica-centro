@@ -1,10 +1,10 @@
 import Image from "next/image"
 
 const galleryImages = [
-  { src: "/placeholder.svg?height=400&width=600", alt: "Recepción del centro" },
-  { src: "/placeholder.svg?height=400&width=600", alt: "Sala de tratamientos" },
-  { src: "/placeholder.svg?height=400&width=600", alt: "Área de relajación" },
-  { src: "/placeholder.svg?height=400&width=600", alt: "Productos utilizados" },
+  { src: "fotos/sesion_maderoterapia_007.webp?height=400&width=600", alt: "Recepción del centro" },
+  { src: "local/image0.jpeg?height=400&width=600", alt: "Sala de tratamientos" },
+  { src: "local/image3.jpeg?height=400&width=600", alt: "Área de relajación" },
+  { src: "local/image6.jpeg?height=400&width=600", alt: "Productos utilizados" },
 ]
 
 export default function GallerySection() {

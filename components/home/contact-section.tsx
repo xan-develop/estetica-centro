@@ -1,5 +1,6 @@
 import { Calendar, Mail, MapPin, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { contactInfo } from "@/lib/services-data"
 
 export default function ContactSection() {
   return (
@@ -13,15 +14,15 @@ export default function ContactSection() {
           <div className="space-y-4 pt-4">
             <div className="flex items-center gap-2">
               <Phone className="h-5 w-5 text-primary" />
-              <span>+34 123 456 789</span>
+              <span>WhatsApp: {contactInfo.whatsapp}</span>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="h-5 w-5 text-primary" />
-              <span>info@bellezaesencial.com</span>
+              <span>{contactInfo.email}</span>
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="h-5 w-5 text-primary" />
-              <span>Calle Principal 123, Ciudad</span>
+              <span>{contactInfo.address}</span>
             </div>
             <div className="flex items-center gap-2">
               <Calendar className="h-5 w-5 text-primary" />

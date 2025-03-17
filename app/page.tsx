@@ -3,6 +3,7 @@ import ServicesPreview from "@/components/home/services-preview"
 import AboutSection from "@/components/home/about-section"
 import TestimonialsSection from "@/components/home/testimonials-section"
 import ContactSection from "@/components/home/contact-section"
+import CoursesSection from "@/components/home/curso-section"
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <ServicesPreview />
       <AboutSection />
       <TestimonialsSection />
+      <CoursesSection />
       <ContactSection />
     </main>
   )

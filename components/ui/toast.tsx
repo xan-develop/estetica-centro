@@ -4,6 +4,8 @@ import * as React from "react"
 import * as ToastPrimitives from "@radix-ui/react-toast"
 import { cva, type VariantProps } from "class-variance-authority"
 import { X } from "lucide-react"
+import { motion, AnimatePresence } from 'framer-motion'
+import { CheckCircle, Trash2 } from 'lucide-react'
 
 import { cn } from "@/lib/utils"
 
@@ -111,6 +113,53 @@ const ToastDescription = React.forwardRef<
   />
 ))
 ToastDescription.displayName = ToastPrimitives.Description.displayName
+
+interface NewToastProps {
+  title: string
+  message: string
+  duration?: number
+  position?: "top-right" | "bottom-right" | "bottom-center"
+  variant?: "success" | "error"
+}
+
+export const NewToast: React.FC<NewToastProps> = ({ 
+  title, 
+  message, 
+  duration = 2000,
+  position = "bottom-center",
+  variant = "success"
+}) => {
+  const positionClasses = {
+    "top-right": "top-4 right-4",
+    "bottom-right": "bottom-4 right-4",
+    "bottom-center": "bottom-4 left-1/2 transform -translate-x-1/2",
+  }
+
+  const icon = variant === "success" ? <CheckCircle className="h-5 w-5 text-green-500" /> : <Trash2 className="h-5 w-5 text-red-500" />;
+  const borderColor = variant === "success" ? "border-green-500" : "border-red-500";
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 10 }}
+        transition={{ duration: 0.3, type: "spring", stiffness: 500, damping: 30 }}
+        className={`fixed z-50 ${positionClasses[position]}`}
+      >
+        <div className={`flex items-center gap-3 bg-white text-black border ${borderColor} rounded-md shadow-lg py-2 px-4 max-w-md`}>
+          <div className="flex-shrink-0">
+            {icon}
+          </div>
+          <div className="flex-1">
+            <h3 className="font-semibold text-sm">{title}</h3>
+            <p className="text-sm">{message}</p>
+          </div>
+        </div>
+      </motion.div>
+    </AnimatePresence>
+  )
+}
 
 type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>
 
