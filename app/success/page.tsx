@@ -1,10 +1,10 @@
-'use client'
-import { useEffect, useState, useRef } from "react";
+'use client';
+import { useEffect, useState, useRef, Suspense } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { EmailSpinner } from "@/components/success/EmailSpinner";
 import { AlertCircle } from "lucide-react";
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams } from "next/navigation";
 import { set } from "zod";
 
 export interface CarritoItem {
@@ -14,7 +14,8 @@ export interface CarritoItem {
   quantity?: number;
 }
 
-export default function SuccessPayment() {
+// Componente interno que usa useSearchParams
+function SuccessPaymentContent() {
   const searchParams = useSearchParams();
   const [isValid, setIsValid] = useState(true);
   const [loading, setLoading] = useState(true);
@@ -29,9 +30,8 @@ export default function SuccessPayment() {
   } | null>(null);
   const [carritoOk, setCarritoOk] = useState<CarritoItem[]>([]);
   const [emailAlreadySent, setEmailAlreadySent] = useState(false);
-  const emailSentRef = useRef(false); // Nuevo flag para controlar envíos múltiples
+  const emailSentRef = useRef(false);
 
-  // Función para enviar el correo
   const sendConfirmationEmail = async (datosPersona: any, carritoItems: CarritoItem[]) => {
     try {
       if (!datosPersona.email || !datosPersona.fullName || !datosPersona.orderId) {
@@ -43,10 +43,10 @@ export default function SuccessPayment() {
         return false;
       }
 
-      const response = await fetch('/api/sendmail', {
-        method: 'POST',
+      const response = await fetch("/api/sendmail", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           dataPerson: datosPersona,
@@ -62,7 +62,7 @@ export default function SuccessPayment() {
         return false;
       }
 
-      localStorage.setItem('emailSent', datosPersona.orderId);
+      localStorage.setItem("emailSent", datosPersona.orderId);
       console.log("Correo enviado correctamente");
       return true;
     } catch (error: any) {
@@ -80,22 +80,20 @@ export default function SuccessPayment() {
 
       setLoading(true);
 
-      // 1. Validar el token CSRF
-      const csrfTokenFromUrl = searchParams.get('csrfToken');
+      const csrfTokenFromUrl = searchParams.get("csrfToken");
       const response = await fetch(`/api/validateCsrf?csrfToken=${csrfTokenFromUrl}`);
       const data = await response.json();
       setIsValid(data.valid);
 
       if (!data.valid) {
-        console.warn('Solicitud no autorizada a la página de éxito');
-        window.location.href = '/error?fail=csrfToken'; // Redirige a la página de error
-        return; // Importante: Detener la ejecución si la validación falla
+        console.warn("Solicitud no autorizada a la página de éxito");
+        window.location.href = "/error?fail=csrfToken";
+        return;
       }
 
-      // 2. Si la validación es exitosa, continuar con el resto del código
-      const datosPersonaStr = localStorage.getItem('datosPersona');
-      const carritoOkStr = localStorage.getItem('carritoOk');
-      const emailSentForOrder = localStorage.getItem('emailSent');
+      const datosPersonaStr = localStorage.getItem("datosPersona");
+      const carritoOkStr = localStorage.getItem("carritoOk");
+      const emailSentForOrder = localStorage.getItem("emailSent");
 
       if (datosPersonaStr && carritoOkStr) {
         try {
@@ -105,19 +103,17 @@ export default function SuccessPayment() {
           const parsedCarrito = JSON.parse(carritoOkStr);
           setCarritoOk(parsedCarrito);
 
-          // Verificar si el correo ya fue enviado para este pedido
           if (emailSentForOrder === parsedDatos.orderId) {
-            console.log('Email ya enviado anteriormente, no se reenvía');
+            console.log("Email ya enviado anteriormente, no se reenvía");
             setMailSent(true);
           } else {
-            // Intentar enviar el correo solo si no se ha enviado antes
-            console.log('Intentando enviar email por primera vez');
+            console.log("Intentando enviar email por primera vez");
             if (!emailSentRef.current) {
-              emailSentRef.current = true; // Marcar como enviado
+              emailSentRef.current = true;
               const success = await sendConfirmationEmail(parsedDatos, parsedCarrito);
               if (success) {
                 setMailSent(success);
-                console.log('Correo enviado correctamente');
+                console.log("Correo enviado correctamente");
               }
             }
           }
@@ -183,7 +179,6 @@ export default function SuccessPayment() {
                 </div>
               </div>
             )}
-            
             <div className="container px-4 md:px-6 text-center">
               <motion.div
                 className="rounded-lg border shadow-md p-4 md:p-6 bg-white text-card-foreground"
@@ -228,7 +223,9 @@ export default function SuccessPayment() {
                         ))
                       ) : (
                         <tr>
-                          <td colSpan={2} className="py-2 px-4 text-center text-sm text-muted-foreground">No hay elementos en el carrito.</td>
+                          <td colSpan={2} className="py-2 px-4 text-center text-sm text-muted-foreground">
+                            No hay elementos en el carrito.
+                          </td>
                         </tr>
                       )}
                     </tbody>
@@ -263,5 +260,14 @@ export default function SuccessPayment() {
         )}
       </section>
     </main>
+  );
+}
+
+// Componente principal exportado con Suspense
+export default function SuccessPayment() {
+  return (
+    <Suspense fallback={<div className="bg-background min-h-screen flex items-center justify-center">Cargando pago...</div>}>
+      <SuccessPaymentContent />
+    </Suspense>
   );
 }
