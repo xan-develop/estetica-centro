@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { MailerSend, EmailParams, Sender, Recipient } from 'mailersend';
+import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
   try {
@@ -142,11 +142,11 @@ export async function POST(req: Request) {
         <h3>Reserva ahora aquí</h3>
         <a href="https://cal.com/alex-garcia-cb8w5j/cita-previa" class="button">Reservar cita</a>
         
-        <p>Si tienes alguna pregunta sobre tu pedido, no dudes en contactarnos a <a href="mailto:info@lixchel.es">info@lixchel.es</a> o al teléfono que encontrarás en nuestra web.</p>
+        <p>Si tienes alguna pregunta sobre tu pedido, no dudes en contactarnos a <a href="mailto:info@lixchel.es">chirmatesl@gmail.com</a> o al teléfono que encontrarás en nuestra web.</p>
         
         <p>¡Gracias por confiar en nosotros!</p>
         
-        <a href="https://lixchel.vercel.app" class="button">Visitar nuestra web</a>
+        <a href="https://lixchel.es" class="button">Visitar nuestra web</a>
       </div>
       
       <div class="footer">
@@ -179,44 +179,51 @@ export async function POST(req: Request) {
       Lixchel Center
     `;
 
-    const mailerSend = new MailerSend({
-      apiKey: process.env.MAILERSEND_API_KEY as string,
+    // Configurar el transporte SMTP
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT),
+      secure: true, // true para 465, false para otros puertos
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
     });
 
-    const sentFrom = new Sender('prueba@trial-z3m5jgr3w2zgdpyo.mlsender.net', 'Lixchel Center');
-
     // Enviar el primer correo al cliente
-    const emailParamsToClient = new EmailParams()
-      .setFrom(sentFrom)
-      .setTo([new Recipient(toEmail, toName)])
-      .setSubject(subject)
-      .setHtml(htmlContent)
-      .setText(textContent);
-
     try {
-      await mailerSend.email.send(emailParamsToClient);
+      await transporter.sendMail({
+        from: `"Lixchel Center" <${process.env.SMTP_USER}>`,
+        to: toEmail,
+        subject: subject,
+        text: textContent,
+        html: htmlContent,
+      });
       console.log("Correo enviado correctamente al cliente");
     } catch (sendError: any) {
-      console.error("Error al enviar el email al cliente:", sendError.body);
+      console.error("Error al enviar el email al cliente:", sendError);
       return NextResponse.json({ success: false, error: sendError.message }, { status: 500 });
     }
 
-    // Enviar el segundo correo al administrador
-    const emailParamsToAdmin = new EmailParams()
-      .setFrom(sentFrom)
-      .setTo([new Recipient('espaciodexander@gmail.com', 'Lixchell')])
-      .setSubject(subject)
-      .setHtml(htmlContent)
-      .setText(textContent);
-
+    // Enviar el segundo correo al administrador (comentado actualmente)
+    /*
     try {
-      await mailerSend.email.send(emailParamsToAdmin);
+      await transporter.sendMail({
+        from: `"Lixchel Center" <chermite>`,
+        to: 'espaciodexander@gmail.com',
+        subject: subject,
+        text: textContent,
+        html: htmlContent,
+      });
       console.log("Correo enviado correctamente al administrador");
-      return NextResponse.json({ success: true, message: 'Email enviado correctamente' });
     } catch (sendError: any) {
-      console.error("Error al enviar el email al administrador:", sendError.body);
+      console.error("Error al enviar el email al administrador:", sendError);
       return NextResponse.json({ success: false, error: sendError.message }, { status: 500 });
     }
+    */
+
+    // Asegurarse de devolver una respuesta en caso de éxito
+    return NextResponse.json({ success: true, message: 'Email enviado correctamente' });
 
   } catch (error: any) {
     console.error("Error general:", error);

@@ -3,10 +3,47 @@
 import * as React from "react"
 import * as DialogPrimitive from "@radix-ui/react-dialog"
 import { X } from "lucide-react"
+import { ReactNode } from "react"
+import { motion } from "framer-motion"
 
 import { cn } from "@/lib/utils"
 
-const Dialog = DialogPrimitive.Root
+export function Dialog({ open, onOpenChange, children }: { open: boolean; onOpenChange: (open: boolean) => void; children: ReactNode }) {
+  if (!open) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        className="bg-white rounded-lg shadow-lg p-6 max-w-md w-full"
+      >
+        {children}
+      </motion.div>
+    </div>
+  );
+}
+
+Dialog.Content = function DialogContent({ children }: { children: ReactNode }) {
+  return <div>{children}</div>;
+};
+
+Dialog.Header = function DialogHeader({ children }: { children: ReactNode }) {
+  return <div className="mb-4">{children}</div>;
+};
+
+Dialog.Title = function DialogTitle({ children }: { children: ReactNode }) {
+  return <h2 className="text-lg font-semibold">{children}</h2>;
+};
+
+Dialog.Body = function DialogBody({ children }: { children: ReactNode }) {
+  return <div className="text-sm text-gray-600">{children}</div>;
+};
+
+Dialog.Footer = function DialogFooter({ children }: { children: ReactNode }) {
+  return <div className="mt-4 flex justify-end">{children}</div>;
+};
 
 const DialogTrigger = DialogPrimitive.Trigger
 

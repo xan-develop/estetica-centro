@@ -30,7 +30,7 @@ const teamMembers = [
 
 export default function TeamSection() {
   return (
-    <section className="py-12 md:py-24">
+    <section className="py-12 md:py-24 hidden">
       <div className="container px-4 md:px-6">
         <h2 className="text-3xl font-serif font-bold tracking-tighter text-center mb-12">Nuestro Equipo</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -11,7 +11,7 @@ export default function CoursesSection() {
   const [isPlaying, setIsPlaying] = useState(false)
 
     return (
-      <section className="w-full py-16 md:py-24 bg-background">
+      <section className="w-full py-10 md:py-24 bg-background">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary">
@@ -27,9 +27,9 @@ export default function CoursesSection() {
   
           <div className="grid gap-10 lg:grid-cols-2 items-start">
             <div className="h-full flex">
-              <div className="grid grid-cols-12 gap-4 h-full">
+              <div className="grid w-full grid-cols-12 gap-4 h-full">
                 {/* Main vertical image */}
-                <div className="relative col-span-5 h-full rounded-lg overflow-hidden">
+                <div className="relative col-span-12 sm:col-span-5 h-64 sm:h-full rounded-lg overflow-hidden">
                   <div className="h-full">
                     <Image
                       src="fotos/screenshot_chat_016.webp"
@@ -41,8 +41,8 @@ export default function CoursesSection() {
                   </div>
                 </div>
                 {/* Grid of smaller images */}
-                <div className="col-span-7 grid grid-rows-2 gap-4 h-full">
-                  <div className="relative rounded-lg overflow-hidden h-full">
+                <div className="col-span-12 sm:col-span-7 grid grid-rows-2 gap-4 h-full">
+                  <div className="relative rounded-lg overflow-hidden h-32 sm:h-full">
                     <Image
                       src="fotos/screenshot_chat_004.webp"
                       alt="Instrumentos de maderoterapia"
@@ -51,7 +51,7 @@ export default function CoursesSection() {
                       className="object-cover h-full w-full hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <div className="grid grid-cols-2 gap-4 h-full">
+                  <div className="grid grid-cols-2 gap-4 h-32 sm:h-full">
                     <div className="relative rounded-lg overflow-hidden h-full">
                       <Image
                         src="fotos/screenshot_chat_019.webp"
@@ -76,7 +76,8 @@ export default function CoursesSection() {
               </div>
             </div>
   
-            <div className="space-y-6">
+            {/* Adjust spacing for mobile */}
+            <div className="space-y-6 mt-8 sm:mt-0">
               <Card className="border border-primary/20 bg-card shadow-sm">
                 <CardContent className="p-6">
                   <h3 className="text-2xl font-bold mb-4 text-primary">¿Qué aprenderás?</h3>

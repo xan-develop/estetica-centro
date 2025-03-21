@@ -84,12 +84,10 @@ export default function HeroSection() {
               <Button 
                 size="lg"
                 className="group bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 h-10 text-base font-medium shadow-md shadow-primary/20"
-                asChild
+                onClick={() => alert('La función de reservar cita no está disponible por ahora.')}
               >
-                <Link href="/reservar">
-                  Reservar Cita
-                  <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                Reservar Cita
+                <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
                 variant="outline" 
