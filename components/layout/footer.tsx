@@ -93,13 +93,10 @@ export default function Footer() {
         <div className="mt-8 border-t pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <span className="text-sm text-muted-foreground">© 2025 Belleza Esencial. Todos los derechos reservados.</span>
           <nav className="flex gap-4 sm:gap-6">
-            <Link href="#" className="text-sm hover:underline underline-offset-4">
-              Términos
+            <Link href="/terms" className="text-sm hover:underline underline-offset-4">
+              Términos y Privacidad
             </Link>
-            <Link href="#" className="text-sm hover:underline underline-offset-4">
-              Privacidad
-            </Link>
-            <Link href="#" className="text-sm hover:underline underline-offset-4">
+            <Link href="/cookiespolicy" className="text-sm hover:underline underline-offset-4">
               Cookies
             </Link>
           </nav>
