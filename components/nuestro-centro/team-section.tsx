@@ -3,37 +3,25 @@ import { Card, CardContent } from "@/components/ui/card"
 
 const teamMembers = [
   {
-    name: "María Rodríguez",
+    name: "Chirle Yaneth",
     role: "Fundadora y Directora",
-    image: "/placeholder.svg?height=300&width=300",
-    description: "Con más de 20 años de experiencia en el sector de la belleza y el bienestar.",
+    image: "/fotos/sesion_maderoterapia_070.webp?height=300&width=300",
+    description: "Con más de 10 años de experiencia en el sector de la belleza y el bienestar.",
   },
   {
-    name: "Carlos Gómez",
+    name: "Aleanneth Olivares",
     role: "Especialista en Tratamientos Corporales",
-    image: "/placeholder.svg?height=300&width=300",
-    description: "Experto en técnicas de masaje y tratamientos reductores.",
-  },
-  {
-    name: "Laura Sánchez",
-    role: "Esteticista Facial",
-    image: "/placeholder.svg?height=300&width=300",
-    description: "Especializada en tratamientos anti-edad y rejuvenecimiento facial.",
-  },
-  {
-    name: "Javier Martín",
-    role: "Terapeuta Holístico",
-    image: "/placeholder.svg?height=300&width=300",
-    description: "Combina técnicas tradicionales con terapias alternativas para un bienestar integral.",
+    image: "/fotos/sesion_maderoterapia_062.webp?height=300&width=300",
+    description: "Experta en técnicas de masaje y tratamientos reductores.",
   },
 ]
 
 export default function TeamSection() {
   return (
-    <section className="py-12 md:py-24 hidden">
+    <section className="py-12 md:py-24">
       <div className="container px-4 md:px-6">
         <h2 className="text-3xl font-serif font-bold tracking-tighter text-center mb-12">Nuestro Equipo</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 max-w-2xl mx-auto gap-6">
           {teamMembers.map((member, index) => (
             <Card key={index} className="overflow-hidden">
               <div className="relative h-64">
