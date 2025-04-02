@@ -3,11 +3,15 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
   try {
+    // Obtener variables de entorno una sola vez
+    const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, ADMIN_EMAIL } = process.env;
+
     const { dataPerson, elementos } = await req.json();
 
     const toEmail = dataPerson.email;
     const toName = dataPerson.fullName;
     const subject = `¡Pedido ${dataPerson.orderId} Confirmado! - Lixchel Center`;
+    const adminSubjet = `Nuevo pedido de ${dataPerson.fullName} - Lixchel Center`;
 
     // Crear el HTML para el correo electrónico
     const htmlContent = `
@@ -181,19 +185,19 @@ export async function POST(req: Request) {
 
     // Configurar el transporte SMTP
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
+      host: SMTP_HOST,
+      port: Number(SMTP_PORT),
       secure: true, // true para 465, false para otros puertos
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        user: SMTP_USER,
+        pass: SMTP_PASS,
       },
     });
 
     // Enviar el primer correo al cliente
     try {
       await transporter.sendMail({
-        from: `"Lixchel Center" <${process.env.SMTP_USER}>`,
+        from: `"Lixchel Center" <${SMTP_USER}>`,
         to: toEmail,
         subject: subject,
         text: textContent,
@@ -206,12 +210,12 @@ export async function POST(req: Request) {
     }
 
     // Enviar el segundo correo al administrador (comentado actualmente)
-    /*
+    
     try {
       await transporter.sendMail({
-        from: `"Lixchel Center" <chermite>`,
-        to: 'espaciodexander@gmail.com',
-        subject: subject,
+        from: `"Lixchel Center" <${SMTP_USER}>`,
+        to: ADMIN_EMAIL, // Cambiar al correo del administrador
+        subject: adminSubjet,
         text: textContent,
         html: htmlContent,
       });
@@ -220,10 +224,10 @@ export async function POST(req: Request) {
       console.error("Error al enviar el email al administrador:", sendError);
       return NextResponse.json({ success: false, error: sendError.message }, { status: 500 });
     }
-    */
+    
 
     // Asegurarse de devolver una respuesta en caso de éxito
-    return NextResponse.json({ success: true, message: 'Email enviado correctamente' });
+    return NextResponse.json({ success: true, message: 'Emails enviado correctamente' });
 
   } catch (error: any) {
     console.error("Error general:", error);

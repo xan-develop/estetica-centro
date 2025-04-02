@@ -1,14 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import {v4 as uuidv4} from 'uuid';
 import { cookies } from 'next/headers';
-import { createRedsysAPI, TRANSACTION_TYPES, randomTransactionId, SANDBOX_URLS, CURRENCIES } from 'redsys-easy';
+import { createRedsysAPI, TRANSACTION_TYPES, randomTransactionId, PRODUCTION_URLS, CURRENCIES } from 'redsys-easy';
 import Decimal from 'decimal.js';
 
 const {
   createRedirectForm,
   processRestNotification
 } = createRedsysAPI({
-  urls: SANDBOX_URLS,
+  urls: PRODUCTION_URLS,
   secretKey: process.env.REDSYS_SECRET_KEY as string
 });
 
@@ -39,7 +39,7 @@ export async function GET(req: NextRequest) {
     DS_MERCHANT_CURRENCY: redsysCurrency,
     DS_MERCHANT_MERCHANTNAME: 'Chirmate Lixchel',
     DS_MERCHANT_TITULAR: fullName,
-    DS_MERCHANT_PRODUCTDESCRIPTION: 'Compra de prueba para la clinica',
+    DS_MERCHANT_PRODUCTDESCRIPTION: 'Pago de tratamientos Lixchel',
     DS_MERCHANT_URLOK: `${process.env.NEXT_PUBLIC_BASE_URL}/success`,
     DS_MERCHANT_URLKO: `${process.env.NEXT_PUBLIC_BASE_URL}/error`,
     DS_MERCHANT_TRANSACTIONTYPE: TRANSACTION_TYPES.AUTHORIZATION

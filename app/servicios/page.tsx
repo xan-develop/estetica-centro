@@ -22,8 +22,8 @@ const serviceCategories = [
         title: "Maderoterapia",
         description:
           "Terapia con herramientas de madera diseñadas para modelar el cuerpo, reducir medidas y mejorar la circulación.",
-        price: 15,
-        duration: "1€ minuto - mínimo 5 minutos",
+        price: 35,
+        duration: "Por sección y zona",
         image: "/fotos/sesion_maderoterapia_004.webp?height=300&width=400",
       },
       {
@@ -31,8 +31,8 @@ const serviceCategories = [
         title: "Mesoterapia",
         description:
           "Tratamiento estético no invasivo que ayuda a reducir grasa localizada y mejorar la apariencia de la piel.",
-        price: 15,
-        duration: "1€ minuto - mínimo 15 minutos",
+        price: 35,
+        duration: "Por seccion y zona",
         image: "/img/mesoterapia.webp?height=300&width=400",
       },
       {
@@ -40,8 +40,8 @@ const serviceCategories = [
         title: "Manta Térmica",
         description:
           "Terapia de calor que ayuda a la eliminación de toxinas, mejora la circulación y favorece la reducción de medidas.",
-        price: 15,
-        duration: "1€ minuto - mínimo 15 minutos",
+        price: 30,
+        duration: "1€ minuto - mínimo 30 minutos",
         image: "/img/manta-termica.webp?height=300&width=400",
       },
       {
@@ -58,7 +58,7 @@ const serviceCategories = [
         title: "Cavitación",
         description:
           "Técnica de ultrasonido que ayuda a eliminar grasa localizada y reducir medidas sin cirugía.",
-        price: 15,
+        price: 30,
         duration: "1€ minuto - mínimo 30 minutos",
         image: "/img/cavitacion.webp?height=300&width=400",
       },
@@ -67,7 +67,7 @@ const serviceCategories = [
         title: "Presoterapia",
         description:
           "Tratamiento de compresión que mejora la circulación, reduce la retención de líquidos y ayuda en la recuperación muscular.",
-        price: 15,
+        price: 45,
         duration: "1€ minuto - mínimo 45 minutos",
         image: "/img/presoterapia.webp?height=300&width=400",
       },
@@ -81,10 +81,10 @@ const serviceCategories = [
       },
       {
         id: "vacumterapia",
-        title: "Vacumterapia",
+        title: "Vacuterapia",
         description:
           "Terapia de succión que ayuda a mejorar la circulación, reducir la celulitis y tonificar la piel.",
-        price: 15,
+        price: 30,
         duration: "1€ minuto - mínimo 30 minutos",
         image: "/img/vacumterapia.webp?height=300&width=400",
       },

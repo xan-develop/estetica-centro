@@ -54,8 +54,8 @@ export const POST = async (req: Request) => {
     // Enviar el correo al administrador
     try {
       await transporter.sendMail({
-        from: `"Lixchel Center" <lixchel@xadow.es>`,
-        to: 'espaciodexander@gmail.com', // Cambiar al correo del administrador
+        from: `"Lixchel Centro Estetico" <info@lixchel.es>`,
+        to: 'lixchel@chirmate.com', // Cambiar al correo del administrador
         subject: subject,
         text: textContent,
         html: htmlContent,
