@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { SiWhatsapp , SiInstagram , SiGmail } from "react-icons/si";
+import { SiWhatsapp , SiInstagram , SiGmail , SiFacebook } from "react-icons/si";
 import { Button } from "@/components/ui/button"
 
 export default function Footer() {
@@ -13,18 +13,30 @@ export default function Footer() {
               Tu centro de estética especializado en mejorar tu físico y bienestar con tratamientos personalizados.
             </p>
             <div className="flex gap-4">
-              <Button size="icon" variant="outline">
-                <SiInstagram className="h-5 w-5" />
-                <span className="sr-only">Instagram</span>
-              </Button>
-              <Button size="icon" variant="outline">
+                <Button size="icon" variant="outline" asChild>
+                <a href="https://www.instagram.com/lixchel_/" target="_blank" rel="noopener noreferrer">
+                  <SiInstagram className="h-5 w-5" />
+                  <span className="sr-only">Instagram</span>
+                </a>
+                </Button>
+              <Button size="icon" variant="outline" asChild>
+              <a href="https://api.whatsapp.com/send?phone=+34604853383" target="_blank" rel="noopener noreferrer">
                 <SiWhatsapp className="h-5 w-5" />
                 <span className="sr-only">WhatsApp</span>
+              </a>
               </Button>
-              <Button size="icon" variant="outline">
-                <SiGmail className="h-5 w-5" />
-                <span className="sr-only">Gmail</span>
-              </Button>
+                <Button size="icon" variant="outline" asChild>
+                <a href="mailto:lixchel@chirmate.com" target="_blank" rel="noopener noreferrer">
+                  <SiGmail className="h-5 w-5" />
+                  <span className="sr-only">Gmail</span>
+                </a>
+                </Button>
+                <Button size="icon" variant="outline" asChild>
+                <a href="https://www.facebook.com/LixchelCentroEstetico" target="_blank" rel="noopener noreferrer">
+                  <SiFacebook className="h-5 w-5" />
+                  <span className="sr-only">Facebook</span>
+                </a>
+                </Button>
             </div>
           </div>
 

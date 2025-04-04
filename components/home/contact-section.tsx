@@ -98,7 +98,8 @@ export default function ContactSection() {
             </div>
             <div className="flex items-center gap-2">
               <Calendar className="h-5 w-5 text-primary" />
-              <span>Lunes a Sábado: 9:00 - 20:00</span>
+              <span>Lunes a Viernes: 10:00 - 19:00</span>
+              <span>Sábados: 10:00 - 15:00</span>
             </div>
           </div>
         </div>

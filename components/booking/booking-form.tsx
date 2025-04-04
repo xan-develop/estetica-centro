@@ -88,7 +88,7 @@ const CONTACT_DETAILS: ContactDetail[] = [
   {
     icon: Clock,
     title: "Horario",
-    details: ["Lunes a Viernes: 9:00 - 20:00", "Sábados: 10:00 - 14:00"]
+    details: ["Lunes a Viernes: 10:00 - 19:00", "Sábados: 10:00 - 15:00"]
   },
   {
     icon: Phone,
@@ -98,7 +98,7 @@ const CONTACT_DETAILS: ContactDetail[] = [
   {
     icon: Mail,
     title: "Email",
-    details: ["chirmatesl@gmail.com"]
+    details: ["lixchel@chirmate.com"]
   }
 ]
 
@@ -162,11 +162,11 @@ function BookingCalendarCard() {
           Selecciona el servicio, fecha y hora que mejor se adapte a tu agenda
         </CardDescription>
       </CardHeader>
-      <CardContent className="p-4">
-        <div className="cal-container rounded">
-          <Calform />
-        </div>
-      </CardContent>
+      <Button variant="default" className="ml-4 mb-4">
+        <Link href="https://cal.com/chirmate-sl-rvrpj2/" target="_blank" rel="noopener noreferrer">
+          Reservar Cita
+        </Link>
+      </Button>
     </MotionCard>
   )
 }

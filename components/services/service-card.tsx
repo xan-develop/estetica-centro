@@ -15,12 +15,18 @@ export interface ServiceProps {
   popular?: boolean
 }
 
-export default function ServiceCard({ service }: { service: ServiceProps }) {
+export default function ServiceCard({ 
+  service, 
+  categoryId 
+}: { 
+  service: ServiceProps; 
+  categoryId: string 
+}) {
   const { agregarAlCarrito } = useCart(); // Usa el hook para acceder a las funciones del carrito
 
   return (
     <Card className="overflow-hidden flex flex-col h-full">
-      <div className="relative h-0 sm:h-20 md:h-40 overflow-hidden">
+      <div className="relative h-24 sm:h-32 md:h-60 overflow-hidden">
         <div className="absolute inset-0 filter">
           <Image
             src={service.image || "/placeholder.svg"}
@@ -39,13 +45,37 @@ export default function ServiceCard({ service }: { service: ServiceProps }) {
           <h3 className="text-2xl font-bold text-primary">{service.title}</h3>
           <div className="text-lg font-bold text-primary">{service.price}€</div>
         </div>
-        <p className="text-base mb-4">{service.description}</p>
-        <div className="text-sm font-medium">Duración: <span className="text-muted-foreground">{service.duration}</span></div>
+        {service.id.includes('zona-') || service.id.includes('pack-') ? (
+            <ul className="list-disc list-inside text-base mb-4">
+            {service.description.split(',').map((item, index) => (
+              service.id.includes('zona-') && index === 0 ? (
+                <li key={index} className="list-none font-bold">
+                  {item.trim()}
+                </li>
+              ) : (
+                <li key={index}>
+                  {service.id.includes('zona-') && index === 0 ? (
+                    <span className="font-bold">{item.trim()}</span>
+                  ) : (
+                    item.trim()
+                  )}
+                </li>
+              )
+            ))}
+            </ul>
+        ) : (
+          <>
+            <p className="text-base mb-4">{service.description}</p>
+            <div className="text-sm font-medium">Duración: <span className="text-muted-foreground">{service.duration}</span></div>
+          </>
+        )}
       </CardContent>
       <CardFooter className="p-6 pt-0 flex flex-col sm:flex-row gap-2">
-        <Button variant="outline" className="w-full text-sm" asChild>
-          <Link href={`/servicios/${service.id}`}>Más información</Link>
-        </Button>
+        {categoryId !== "laser" && (
+          <Button variant="outline" className="w-full text-sm" asChild>
+            <Link href={`/servicios/${service.id}`}>Más información</Link>
+          </Button>
+        )}
         <Button className="w-full text-sm" onClick={() => agregarAlCarrito({ id: service.id, title: service.title, price: service.price })}>
           Agregar Tratamiento
         </Button>

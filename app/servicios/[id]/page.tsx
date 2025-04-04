@@ -66,9 +66,6 @@ export default function ServiceDetailPage({ params }: { params: { id: string } }
                 {service.duration}
               </div>
             </div>
-            <Button size="lg" className="w-full md:w-auto" asChild>
-              <Link href={`/reservar?servicio=${service.id}`}>Reservar este servicio</Link>
-            </Button>
             <Button size="lg" className="w-full md:w-auto ml-4 bg-red-200 text-black" onClick={() => agregarAlCarrito({ id: service.id, title: service.title, price: service.price })}>
               Añadir al carrito
             </Button>
@@ -108,40 +105,6 @@ export default function ServiceDetailPage({ params }: { params: { id: string } }
             </ol>
           </section>
         </div>
-
-        <section className="mt-16 hidden">
-          <h2 className="text-2xl font-serif font-semibold mb-6">Preguntas frecuentes</h2>
-          <Accordion type="single" collapsible className="w-full">
-            {[
-              {
-                question: "¿Con qué frecuencia debo realizar este tratamiento?",
-                answer:
-                  "La frecuencia recomendada varía según las necesidades individuales, pero generalmente se sugiere una sesión cada 2-4 semanas para obtener resultados óptimos.",
-              },
-              {
-                question: "¿Es doloroso el tratamiento?",
-                answer:
-                  "No, nuestro tratamiento está diseñado para ser cómodo y relajante. Podrías experimentar una ligera sensación de presión o calor, pero no dolor.",
-              },
-              {
-                question: "¿Cuánto tiempo duran los resultados?",
-                answer:
-                  "Los resultados pueden variar, pero con un cuidado adecuado y siguiendo nuestras recomendaciones, puedes mantener los beneficios durante varias semanas después de cada sesión.",
-              },
-              {
-                question: "¿Hay alguna contraindicación?",
-                answer:
-                  "Aunque es un tratamiento seguro, no se recomienda para personas con ciertas condiciones médicas. Realizamos una consulta previa para asegurar que el tratamiento sea adecuado para ti.",
-              },
-            ].map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger>{faq.question}</AccordionTrigger>
-                <AccordionContent>{faq.answer}</AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </section>
-
         <div className="mt-16 text-center">
           <h2 className="text-2xl font-serif font-semibold mb-4">¿Listo para transformar tu bienestar?</h2>
           <p className="mb-6 text-muted-foreground">

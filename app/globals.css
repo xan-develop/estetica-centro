@@ -92,6 +92,11 @@
   }
 }
 
+@layer components {
+  .container {
+    @apply mx-auto w-full max-w-[1400px];
+  }
+}
 
 .parent {
   display: grid;
@@ -118,4 +123,3 @@
   grid-column-start: 4;
   grid-row-start: 1;
 }
-      

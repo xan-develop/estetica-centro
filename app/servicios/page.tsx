@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 // Datos de ejemplo para los servicios
 const serviceCategories = [
   {
-    
     id: "corporales",
     title: "Tratamientos Corporales",
     description:
@@ -25,15 +24,6 @@ const serviceCategories = [
         price: 35,
         duration: "Por sección y zona",
         image: "/fotos/sesion_maderoterapia_004.webp?height=300&width=400",
-      },
-      {
-        id: "mesoterapia",
-        title: "Mesoterapia",
-        description:
-          "Tratamiento estético no invasivo que ayuda a reducir grasa localizada y mejorar la apariencia de la piel.",
-        price: 35,
-        duration: "Por seccion y zona",
-        image: "/img/mesoterapia.webp?height=300&width=400",
       },
       {
         id: "manta-termica",
@@ -72,16 +62,8 @@ const serviceCategories = [
         image: "/img/presoterapia.webp?height=300&width=400",
       },
       {
-        "id": "shr-v-laser",
-        "title": "SHR-V Laser System",
-        "description": "Sistema de depilación láser de última generación que combina tecnología SHR y luz exclusiva para garantizar resultados óptimos.",
-        "price": 30,
-        "duration": "1€ el minuto - mínimo 30 minutos",
-        "image": "/img/fototerapia.webp?height=300&width=400",
-      },
-      {
         id: "vacumterapia",
-        title: "Vacuterapia",
+        title: "Vacumterapia",
         description:
           "Terapia de succión que ayuda a mejorar la circulación, reducir la celulitis y tonificar la piel.",
         price: 30,
@@ -98,7 +80,7 @@ const serviceCategories = [
     services: [
       {
         id: "limpieza-basica",
-        title: "Limpieza Básica",
+        title: "Limpieza Facial Básica",
         description:
           "Elimina impurezas y deja la piel fresca y revitalizada.",
         price: 40,
@@ -116,7 +98,7 @@ const serviceCategories = [
       },
       {
         id: "dermapen-hilos",
-        title: "Dermapen + Hilos",
+        title: "Dermapen con Hilos Tensores",
         description:
           "Reafirma y rejuvenece la piel con una combinación avanzada de Dermapen y hilos tensores.",
         price: 105,
@@ -125,25 +107,25 @@ const serviceCategories = [
       },
       {
         id: "dermapen-hidratacion",
-        title: "Dermapen + Hidratación",
+        title: "Dermapen con Hidratación",
         description:
           "Estimula la regeneración de la piel mientras proporciona hidratación profunda.",
         price: 60,
         duration: "60 minutos",
-        image: "/img/dermapen-hidratacionlabial.webp?height=300&width=400",
+        image: "/img/dermapen-hidratacion.webp?height=300&width=400",
       },
       {
         id: "dermapen-labial-hidratacion",
-        title: "Dermapen Labial + Hidratación",
+        title: "Dermapen Labial con Hidratación",
         description:
           "Tratamiento para labios que mejora la textura y los mantiene hidratados.",
         price: 35,
         duration: "30 minutos",
-        image: "/img/dermapen-hidratacion.webp?height=300&width=400",
+        image: "/img/dermapen-hidratacionlabial.webp?height=300&width=400",
       },
       {
         id: "dermapen-labial-hidratacion-color",
-        title: "Dermapen Labial + Hidratación con Color",
+        title: "Dermapen Labial con Hidratación y Color",
         description:
           "Añade un toque de color mientras hidrata y mejora la apariencia de los labios.",
         price: 45,
@@ -178,7 +160,7 @@ const serviceCategories = [
       },
       {
         id: "masaje-relajante-cara",
-        title: "Masaje Relajante de Cara",
+        title: "Masaje Relajante Facial",
         description:
           "Estimula la circulación facial y reduce el estrés proporcionando una sensación de bienestar.",
         price: 35,
@@ -205,7 +187,7 @@ const serviceCategories = [
       },
       {
         id: "masaje-relajante-cuerpo-completo",
-        title: "Masaje Relajante Cuerpo Completo",
+        title: "Masaje Relajante de Cuerpo Completo",
         description:
           "Masaje integral para liberar estrés y relajar todos los músculos del cuerpo.",
         price: 75,
@@ -214,15 +196,102 @@ const serviceCategories = [
       },
       {
         id: "masaje-descontracturante-cuerpo-completo",
-        title: "Masaje Descontracturante Cuerpo Completo",
+        title: "Masaje Descontracturante de Cuerpo Completo",
         description:
           "Técnica profunda que ayuda a aliviar tensiones musculares y mejorar la movilidad.",
         price: 90,
         duration: "60 minutos",
-        image: "/img/masaje-des.webp?height=300&width=400",
-      },
-    ],
-  },
+          image: "/img/masaje-des.webp?height=300&width=400",
+        },
+      ],
+    },
+    {
+      "id": "laser",
+      "title": "Depilación Láser SHR-V",
+      "description": "Cuida y rejuvenece tu rostro con nuestros tratamientos faciales personalizados para cada tipo de piel. Los precios son por una zona a elegir de la lista",
+      "services": [
+        {
+          "id": "zona-smart",
+          "title": "Zona Smart (Pequeñas Zonas)",
+          "description": "Precio por una zona,Labio Superior, Mentón, Línea Alba, Manos, Pies, Entresijo, Patillas, Pubis (Ano), Areolas",
+          "price": 17,
+          "duration": "Por sesión",
+          "image": "/img/zona-smart.webp?height=300&width=400"
+        },
+        {
+          "id": "zona-pequena",
+          "title": "Zona Pequeña",
+          "description": "Precio por una zona,Axilas, Antebrazos, Hombros, Nuca",
+          "price": 30,
+          "duration": "Por sesión",
+          "image": "/img/zona-pequena.webp?height=300&width=400"
+        },
+        {
+          "id": "zona-mediana",
+          "title": "Zona Mediana",
+          "description": "Precio por una zona,Muslo, Espalda, Lumbares, Glúteo, Abdomen, Brazos + Manos, Ingle + Pubis, Facial Completo, Barba",
+          "price": 40,
+          "duration": "Por sesión",
+          "image": "/img/zona-mediana.webp?height=300&width=400"
+        },
+        {
+          "id": "zona-grande",
+          "title": "Zona Grande",
+          "description": "Precio por una zona,Piernas + Pies, Pecho + Abdomen, Espalda + Lumbares",
+          "price": 80,
+          "duration": "Por sesión",
+          "image": "/img/zona-grande.webp?height=300&width=400"
+        },
+        {
+          "id": "pack-40",
+          "title": "Pack Labio Superior y Axilas",
+          "description": "Labio Superior, Axila",
+          "price": 40,
+          "duration": "Por sesión",
+          "image": "/img/pack-40.webp?height=300&width=400"
+        },
+        {
+          "id": "pack-45",
+          "title": "Pack Ingle y Axilas",
+          "description": "Ingle, Axila",
+          "price": 45,
+          "duration": "Por sesión",
+          "image": "/img/pack-45.webp?height=300&width=400"
+        },
+        {
+          "id": "pack-75",
+          "title": "Pack Media Pierna, Ingle y Axilas",
+          "description": "Media Pierna, Ingle, Axila",
+          "price": 75,
+          "duration": "Por sesión",
+          "image": "/img/pack-75.webp?height=300&width=400"
+        },
+        {
+          "id": "pack-90",
+          "title": "Pack Pierna Completa, Ingle, Pubis y Axilas",
+          "description": "Pierna Completa, Ingle, Pubis, Axila",
+          "price": 90,
+          "duration": "Por sesión",
+          "image": "/img/pack-90.webp?height=300&width=400"
+        },
+        {
+          "id": "pack-95",
+          "title": "Pack Espalda Masculina y Brazos",
+          "description": "Espalda Masculina, Brazos",
+          "price": 95,
+          "duration": "Por sesión",
+          "image": "/img/pack-95.webp?height=300&width=400"
+        },
+        {
+          "id": "pack-130",
+          "title": "Pack Completo (Piernas, Ingle, Pubis, Axilas y Bigote)",
+          "description": "Ingle, Pubis, Axila, Pierna Completa, Regalo Bigote",
+          "price": 130,
+          "duration": "Por sesión",
+          "image": "/img/pack-130.webp?height=300&width=400"
+        }
+      ]
+    }
 ]
 
 export default function ServiciosPage() {

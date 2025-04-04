@@ -42,7 +42,7 @@ export default function ServiceCategory({ category }: { category: ServiceCategor
             transition={{ duration: 0.2, ease: "easeInOut" }}
           >
             {category.services.map((service) => (
-              <ServiceCard key={service.id} service={service} />
+              <ServiceCard key={service.id} service={service} categoryId={category.id} />
             ))}
           </motion.div>
         )}

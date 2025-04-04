@@ -26,6 +26,12 @@ const featuredServices = [
     image: "fotos/sesion_maderoterapia_004.webp",
     link: "/servicios#masajes",
   },
+  {
+    title: "Depilación Láser SHR",
+    description: "Elimina el vello de forma permanente con la tecnología más avanzada y segura.",
+    image: "/tratamientos/depilacion-laser.jpg",
+    link: "/servicios#laser",
+  },
 ]
 
 // Variantes para animaciones
@@ -54,7 +60,7 @@ const itemVariants = {
 export default function ServicesPreview() {
   return (
     <section id="servicios" className="w-full py-12 md:py-24 lg:py-32 overflow-hidden">
-      <div className="container px-4 md:px-6">
+      <div className="container px-4 md:px-8 lg:px-12">
         <motion.div 
           className="flex flex-col items-center justify-center space-y-4 text-center"
           initial={{ opacity: 0, y: -20 }}
@@ -94,7 +100,7 @@ export default function ServicesPreview() {
         </motion.div>
         
         <motion.div 
-          className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12"
+          className="mx-auto grid max-w-7xl items-center gap-6 py-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -108,23 +114,27 @@ export default function ServicesPreview() {
                 y: -10,
                 transition: { duration: 0.3 }
               }}
+              className="h-full"
             >
-              <Card className="overflow-hidden h-full shadow-lg">
-                <motion.div
-                  whileHover={{ 
-                    scale: 1.05,
-                    transition: { duration: 0.5 }
-                  }}
-                >
-                  <Image
-                    src={service.image || "/placeholder.svg"}
-                    alt={service.title}
-                    width={400}
-                    height={300}
-                    className="aspect-video object-cover"
-                  />
-                </motion.div>
-                <CardContent className="p-6">
+              <Card className="overflow-hidden shadow-lg flex flex-col h-[500px] w-full">
+                <div className="h-[200px] overflow-hidden">
+                  <motion.div
+                    whileHover={{ 
+                      scale: 1.05,
+                      transition: { duration: 0.5 }
+                    }}
+                    className="h-full"
+                  >
+                    <Image
+                      src={service.image || "/placeholder.svg"}
+                      alt={service.title}
+                      width={400}
+                      height={300}
+                      className="w-full h-full object-cover"
+                    />
+                  </motion.div>
+                </div>
+                <CardContent className="p-6 flex flex-col flex-grow">
                   <motion.h3 
                     className="text-xl font-bold"
                     initial={{ opacity: 0 }}
@@ -134,7 +144,7 @@ export default function ServicesPreview() {
                     {service.title}
                   </motion.h3>
                   <motion.p 
-                    className="mt-2 text-muted-foreground"
+                    className="mt-2 text-muted-foreground flex-grow overflow-hidden"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.3 + index * 0.1 }}
@@ -144,8 +154,9 @@ export default function ServicesPreview() {
                   <motion.div 
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 400 }}
+                    className="mt-auto pt-4"
                   >
-                    <Button variant="link" className="mt-4 p-0" asChild>
+                    <Button variant="link" className="p-0" asChild>
                       <Link href={service.link}>
                         Saber más <ChevronRight className="ml-1 h-4 w-4" />
                       </Link>

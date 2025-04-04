@@ -27,46 +27,6 @@ export const serviceCategories = [
         ]
       },
       {
-        "id": "shr-v-laser",
-        "title": "SHR-V Laser System",
-        "description": "Sistema de depilación láser de última generación que combina tecnología SHR y luz exclusiva para garantizar resultados óptimos.",
-        "price": 30,
-        "duration": "1€ el minuto - mínimo 30 minutos",
-        "image": "/img/fototerapia.webp?height=300&width=400",
-        "benefits": [
-          "100% indoloro",
-          "Apto para todos los tipos de piel y cualquier época del año",
-          "50% menos sesiones que equipos convencionales",
-          "Sin zonas muertas, máxima comodidad y rapidez"
-        ],
-        "process": [
-          "Preparación de la piel",
-          "Ajuste del equipo según tipo de piel y zona",
-          "Aplicación de luz SHR en varias pasadas",
-          "Finalización con productos calmantes"
-        ]
-      },
-      {
-        id: "mesoterapia",
-        title: "Mesoterapia",
-        description:
-          "Tratamiento estético no invasivo que ayuda a reducir grasa localizada y mejorar la apariencia de la piel.",
-        price: 35,
-        duration: "Por sección y zona",
-        image: "/img/mesoterapia.webp?height=300&width=400",
-        benefits: [
-          "Elimina grasa localizada",
-          "Mejora la elasticidad de la piel",
-          "Hidratación profunda"
-        ],
-        process: [
-          "Evaluación de la piel",
-          "Aplicación de microinyecciones",
-          "Masaje de absorción",
-          "Cuidado post-tratamiento"
-        ]
-      },
-      {
         id: "manta-termica",
         title: "Manta Térmica",
         description:
@@ -241,7 +201,7 @@ export const serviceCategories = [
           "Estimula la regeneración de la piel mientras proporciona hidratación profunda.",
         price: 60,
         duration: "60 minutos",
-        image: "/img/dermapen-hidratacionlabial.webp?height=300&width=400",
+        image: "/img/dermapen-hidratacion.webp?height=300&width=400",
         benefits: [
           "Regenera la piel",
           "Aporta hidratación profunda",
@@ -261,7 +221,7 @@ export const serviceCategories = [
           "Tratamiento para labios que mejora la textura y los mantiene hidratados.",
         price: 35,
         duration: "30 minutos",
-        image: "/img/dermapen-hidratacion.webp?height=300&width=400",
+        image: "/img/dermapen-hidratacionlabial.webp?height=300&width=400",
         benefits: [
           "Mejora la textura de los labios",
           "Aporta hidratación profunda",

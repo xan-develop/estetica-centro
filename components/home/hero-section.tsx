@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronRight, Clock, MapPin, Star, Instagram, Mail, Phone } from "lucide-react"
+import { ChevronRight, Clock, MapPin, Star, Instagram, Mail, Phone , Facebook} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, useScroll } from "framer-motion"
 import BlurText from "./ui/textochulo"
@@ -81,14 +81,16 @@ export default function HeroSection() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="flex flex-col sm:flex-row justify-center gap-4 pt-2 mb-10"
             >
-              <Button 
+                <Button 
                 size="lg"
                 className="group bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 h-10 text-base font-medium shadow-md shadow-primary/20"
-                onClick={() => alert('La función de reservar cita no está disponible por ahora.')}
-              >
-                Reservar Cita
-                <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
+                asChild
+                >
+                <Link href="/reservar">
+                  Reservar Cita
+                  <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                </Button>
               <Button 
                 variant="outline" 
                 size="lg"
@@ -109,6 +111,9 @@ export default function HeroSection() {
           >
             <Link href="https://www.instagram.com/lixchel_/" target="_blank" className="text-primary hover:text-primary/80">
               <Instagram className="h-6 w-6" />
+            </Link>
+            <Link href="https://www.facebook.com/LixchelCentroEstetico" target="_blank" className="text-primary hover:text-primary/80">
+              <Facebook className="h-6 w-6" />
             </Link>
             <Link href={`https://wa.me/${contactInfo.whatsapp}`} target="_blank" className="text-primary hover:text-primary/80">
               <Phone className="h-6 w-6" />
